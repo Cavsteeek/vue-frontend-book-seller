@@ -46,7 +46,7 @@
                 <!-- Submit Button -->
                 <button
                     class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-4 text-white font-bold"
-                    id="submitButton"><a href="/login" target="_blank">Submit</a>
+                    id="submitButton"><a href="/login">SUBMIT</a>
                 </button> <br><br>
 
                 <!-- Login -->
