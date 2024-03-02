@@ -5,7 +5,7 @@
             style="margin-top: 145px;">
             <form action="" class="">
                 <!-- Sign Up -->
-                <h2 class="text-3xl font-semibold text-left mt-2 mb-2 font-sans">Sign Up
+                <h2 class="text-3xl font-semibold text-left mb-2 font-sans">Sign Up
                 </h2>
 
 
@@ -82,21 +82,15 @@
 
                 <!-- Sign Up Button -->
                 <button
-                    class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-2 text-white font-bold"
+                    class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-4 text-white font-bold"
                     id="signupButton"><a href="/dashboard" target="_blank">SIGN
                         UP </a>
                 </button> <br><br>
 
 
-                <!-- Forgot Password -->
-                <button class="font-semibold font-sans">
-                    <a class="hover:border border-black rounded-md hover:px-2 py-2 hover:bg-black hover:text-white"
-                        href="/forgotpassword" target="_blank">Forgot
-                        Password?</a></button> <br><br>
-
                 <!-- Login -->
                 <button class="font-semibold font-sans ">Already have an
-                    account? <a class="text-slate-500 font-3xl font-bold" href="/login" target="_blank">Login</a></button>
+                    account? <a class="text-slate-500 font-3xl font-bold" href="/login">Login</a></button>
                 <br><br>
 
             </form>
