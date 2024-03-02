@@ -4,17 +4,16 @@
         <div class="border-4 border-slate-500 w-min h-min pt-10 pb-4 py-4 px-4 m-auto rounded-2xl bg-white"
             style="margin-top: 145px;">
             <form action="" class="">
-                <!-- Sign Up -->
+                <!-- Login -->
                 <h2 class="text-3xl font-semibold text-left mb-2 font-sans">Login
                 </h2>
 
 
-                <!-- Register ...... -->
+                <!-- Welcome message -->
                 <h2 class="text-md font-semibold font-sans text-left mt-2 ">Welcome Back!
                 </h2>
 
 
-                <!-- <label for="username" class="text-base mt-5">Username:</label><br /> -->
                 <!-- Email -->
                 <div class="flex mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mt-1">
@@ -46,14 +45,14 @@
                 <!-- login Button -->
                 <button
                     class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-4 text-white font-bold"
-                    id="loginButton"><a href="/dashboard" target="_blank">LOGIN</a>
+                    id="loginButton"><a href="/dashboard">LOGIN</a>
                 </button> <br><br>
 
 
                 <!-- Forgot Password -->
                 <button class="font-semibold font-sans">
                     <a class="hover:border border-black rounded-md hover:px-2 py-2 hover:bg-black hover:text-white"
-                        href="/forgotpassword" target="_blank">Forgot
+                        href="/forgotpassword">Forgot
                         Password?</a></button> <br><br>
 
                 <!-- Sign up -->

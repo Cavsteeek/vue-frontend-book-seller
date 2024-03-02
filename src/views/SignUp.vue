@@ -40,7 +40,7 @@
                 </div>
                 <br>
 
-                <!-- <label for="username" class="text-base mt-5">Username:</label><br /> -->
+
                 <!-- Email -->
                 <div class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mt-1">
@@ -124,4 +124,3 @@ export default {
     width: 168px;
 }
 </style>
-<!-- dribble -->
