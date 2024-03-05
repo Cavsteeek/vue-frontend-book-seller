@@ -3,7 +3,7 @@
     <div id="body" class="bg-slate-400 flex h-screen">
         <div class="border-4 border-slate-500 w-min h-min pt-10 pb-4 py-4 px-4 m-auto rounded-2xl bg-white"
             style="margin-top: 145px;">
-            <form action="" class="">
+            <form @submit.prevent="signUp" class="">
                 <!-- Sign Up -->
                 <h2 class="text-3xl font-semibold text-left mb-2 font-sans">Sign Up
                 </h2>
@@ -22,8 +22,8 @@
                             d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
                     <!-- First name -->
-                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left" type="text" placeholder="Firstname"
-                        style="">
+                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left" type="text" v-model="firstname"
+                        placeholder="Firstname" required>
 
                     &NonBreakingSpace;
                     &NonBreakingSpace;
@@ -35,7 +35,7 @@
                     </svg>
                     <!-- Last name -->
                     <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:border-2 border-black" type="text"
-                        placeholder="Lastname" style="">
+                        placeholder="Lastname" v-model="lastname" required>
 
                 </div>
                 <br>
@@ -51,7 +51,7 @@
                     </svg>
                     <!-- Email -->
                     <input class=" font-sans px-2 h-7 text-left text-wider focus:border-2 border-black" type="email"
-                        id="emailInput" placeholder="Email" style="">
+                        id="emailInput" placeholder="Email" v-model="email" required>
                 </div>
                 <br>
 
@@ -65,7 +65,8 @@
                     </svg>
                     <!-- Phone Number -->
                     <input id="input" class=" font-sans px-2 h-7 text-left"
-                        type="text focus:border-2 border-black rounded-md" placeholder="Phone Number">
+                        type="text focus:border-2 border-black rounded-md" placeholder="Phone Number" v-model="phoneNumber"
+                        required>
 
                     &NonBreakingSpace;
                     &NonBreakingSpace;
@@ -77,13 +78,14 @@
                             clip-rule="evenodd" />
                     </svg>
                     <!-- Password -->
-                    <input id="input" class="font-sans px-2 h-7 text-left focus:" type="password" placeholder="Password">
+                    <input id="input" class="font-sans px-2 h-7 text-left focus:" type="password" placeholder="Password"
+                        v-model="password" required>
                 </div>
 
                 <!-- Sign Up Button -->
                 <button
                     class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-4 text-white font-bold"
-                    id="signupButton"><a href="/dashboard" target="_blank">SIGN
+                    id="signupButton"><a href="/dashboard" target="_blank" @click="signUp">SIGN
                         UP </a>
                 </button> <br><br>
 
@@ -103,9 +105,37 @@
 
 export default {
     name: "SignUp",
+    data() {
+        return {
+            firstname: '',
+            lastname: '',
+            email: '',
+            phoneNumber: '',
+            password: '',
+        };
+    },
+    methods: {
+        signUp() {
+            const apiUrl = '';
 
+            const userData = {
+                firstname: this.firstname,
+                lastname: this.lastname,
+                email: this.email,
+                phonenumber: this.phoneNumber,
+                password: this.password
+            };
 
-}
+            axios.post(apiUrl, userData)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error('Error signing up:', error);
+                });
+        },
+    },
+};
 </script>
 
 <style scoped>
@@ -122,5 +152,4 @@ export default {
 
 #input {
     width: 168px;
-}
-</style>
+}</style>
