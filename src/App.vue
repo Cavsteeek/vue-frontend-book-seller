@@ -1,9 +1,10 @@
 <template>
-  <div id="background-container">
+  <div id="container">
     <router-view />
   </div>
 </template>
 
-<script></script>
+<script>
+</script>
 
 <style scoped></style>

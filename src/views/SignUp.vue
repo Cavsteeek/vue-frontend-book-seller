@@ -1,19 +1,18 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    <div id="body" class="bg-slate-400 flex h-screen">
-        <div class="border-4 border-slate-500 w-min h-min pt-10 pb-4 py-4 px-4 m-auto rounded-2xl bg-white"
+    <div id="body" class="bg-slate-100 flex h-screen">
+        <div class="border border-slate-200 pt-10 pb-4 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
             style="margin-top: 145px;">
-            <form @submit.prevent="signUp" class="">
-                <!-- Sign Up -->
-                <h2 class="text-3xl font-semibold text-left mb-2 font-sans">Sign Up
-                </h2>
+            <!-- Sign Up
+            <h2 class="text-3xl font-semibold text-center mb-2 font-sans">Sign Up
+            </h2> -->
+
+            <!-- Register ...... -->
+            <h2 class="text-3xl font-semibold text-center mt-5 ">Register To Get Started!
+            </h2>
 
 
-                <!-- Register ...... -->
-                <h2 class="text-md font-semibold font-sans text-left mt-2 ">Register To Get Started!
-                </h2>
-
-
+            <form @submit.prevent="signUp" class="mt-3">
                 <!-- FName and LName -->
                 <div class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"
@@ -83,19 +82,18 @@
                 </div>
 
                 <!-- Sign Up Button -->
-                <button
-                    class="ml-30 text-md border border-black rounded-md tracking-wider px-1 py-1 bg-black mt-4 text-white font-bold"
-                    id="signupButton"><a href="/dashboard" target="_blank" @click="signUp">SIGN
+                <button class="ml-30 text-md rounded-md tracking-wider px-1 py-1 bg-green-800 mt-8 text-white font-bold"
+                    id="signupButton"><a href="/dashboard">SIGN
                         UP </a>
                 </button> <br><br>
-
-
-                <!-- Login -->
-                <button class="font-semibold font-sans ">Already have an
-                    account? <a class="text-slate-500 font-3xl font-bold" href="/login">Login</a></button>
-                <br><br>
-
             </form>
+
+            <footer class="mt-3">
+                <!-- Login -->
+                <button class="font-semibold font-sans m-2 ml-20 text-center">Already have an
+                    account? <a class="text-slate-500 font-3xl font-bold text-right" href="/login">Login</a></button>
+                <br><br>
+            </footer>
         </div>
     </div>
 </template>
@@ -152,4 +150,5 @@ export default {
 
 #input {
     width: 168px;
-}</style>
+}
+</style>
