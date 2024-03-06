@@ -21,7 +21,7 @@
                             d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
                     <!-- First name -->
-                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left" type="text" v-model="firstname"
+                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left" type="text" v-model="firstName"
                         placeholder="Firstname" required>
 
                     &NonBreakingSpace;
@@ -34,7 +34,7 @@
                     </svg>
                     <!-- Last name -->
                     <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:border-2 border-black" type="text"
-                        placeholder="Lastname" v-model="lastname" required>
+                        placeholder="Lastname" v-model="lastName" required>
 
                 </div>
                 <br>
@@ -64,7 +64,7 @@
                     </svg>
                     <!-- Phone Number -->
                     <input id="input" class=" font-sans px-2 h-7 text-left"
-                        type="text focus:border-2 border-black rounded-md" placeholder="Phone Number" v-model="phoneNumber"
+                        type="text focus:border-2 border-black rounded-md" placeholder="Username" v-model="username"
                         required>
 
                     &NonBreakingSpace;
@@ -83,8 +83,7 @@
 
                 <!-- Sign Up Button -->
                 <button class="ml-30 text-md rounded-md tracking-wider px-1 py-1 bg-green-800 mt-8 text-white font-bold"
-                    id="signupButton"><a href="/dashboard">SIGN
-                        UP </a>
+                    id="signupButton">SIGN UP
                 </button> <br><br>
             </form>
 
@@ -105,28 +104,33 @@ export default {
     name: "SignUp",
     data() {
         return {
-            firstname: '',
-            lastname: '',
+            firstName: '',
+            lastName: '',
             email: '',
-            phoneNumber: '',
+            username: '',
             password: '',
         };
     },
     methods: {
-        signUp() {
-            const apiUrl = '';
+        async signUp() {
+            const apiUrl = 'http://localhost:8080/api/v1/auth/sign-in';
 
             const userData = {
-                firstname: this.firstname,
-                lastname: this.lastname,
+                firstName: this.firstName,
+                lastName: this.lastName,
                 email: this.email,
-                phonenumber: this.phoneNumber,
+                username: this.username,
                 password: this.password
             };
 
-            axios.post(apiUrl, userData)
+            await axios.post(apiUrl, userData)
                 .then(response => {
-                    console.log(response.data);
+                    if (response.status === 200) {
+                        this.$router.push('/login')
+                        console.log(response.data)
+                    } else {
+                        console.log(response.data)
+                    }
                 })
                 .catch((error) => {
                     console.error('Error signing up:', error);

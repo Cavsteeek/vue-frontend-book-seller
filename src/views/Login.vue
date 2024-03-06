@@ -45,7 +45,7 @@
                 <!-- login Button -->
                 <button
                     class="ml-30 text-md border border-white rounded-md tracking-wider px-1 py-1 bg-green-800 mt-8 text-white font-bold"
-                    id="loginButton"><a @click="signIn">LOGIN</a>
+                    id="loginButton" @click="signIn">LOGIN
                 </button> <br><br>
             </form><br>
 
@@ -99,7 +99,6 @@ export default {
                     }
                 })
                 .catch(error => {
-                    // Handle request error
                     console.error('Error signing in:', error);
                 });
         },
