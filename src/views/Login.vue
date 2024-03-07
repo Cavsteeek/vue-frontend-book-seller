@@ -1,19 +1,16 @@
 <template>
-    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    <div id="body" class="bg-slate-100 flex h-screen">
-        <div class="border border-slate-200 pt-10 pb-4 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
+    <div id="body" class="bg-slate-100 flex h-screen w-screen">
+        <div class="border border-slate-200 pt-10 pb-2 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
             style="margin-top: 145px;">
 
             <!-- Login -->
             <h2 class="text-3xl font-semibold text-center mb-2 font-sans">Login
             </h2>
 
-
             <!-- Welcome message -->
             <h2 class="text-md font-semibold font-sans text-center mt-2 ">Welcome Back!
             </h2>
             <form @submit.prevent="signIn" class="">
-
 
                 <!-- Username -->
                 <div class="flex ">
@@ -28,7 +25,6 @@
                 </div>
                 <br>
 
-
                 <!-- Password -->
                 <div class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"
@@ -41,7 +37,6 @@
                     <input id="input" class="font-sans px-2 h-7 text-left mt-2 focus:outline-none" v-model="password"
                         type="password" placeholder="Password" requried>
                 </div>
-
 
                 <!-- login Button -->
                 <button

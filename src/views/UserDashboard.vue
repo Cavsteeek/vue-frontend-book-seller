@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex items-center justify-between bg-green-500 p-4">
+    <nav class="flex items-center bg-green-500 px-6 py-6 w-screen">
         <div class="flex items-center text-white mr-6">
             <span class="font-semibold text-2xl tracking-tight">Cavsteek's Book Store</span>
         </div>
@@ -12,25 +12,20 @@
                 </svg>
             </button>
         </div>
-        <div class="w-full ml-3 block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div class="text-sm lg:flex-grow">
-                <a href="/books" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">
-                    View Books
-                </a>
-                <a href="" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">
-                    View Cart
-                </a>
-                <!-- <a href="#responsive-header"
-                    class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white">
-                    Users
-                </a> -->
+        <div class="ml-72 block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="lg:flex-grow mt-1">
+                <router-link to="/books"
+                    class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">View
+                    Books</router-link>
+                <router-link to="/orders"
+                    class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4"> View
+                    Orders</router-link>
             </div>
             <div>
-                <a href="#"
-                    class="inline-block flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-green-500 hover:bg-white mt- lg:mt-0"><span
-                        class="text-lg">Logout</span>
-                    &nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-5 h-5 mt-1">
+                <button @click="logout"
+                    class="flex px-1 px-1 font-semibold border rounded text-white border-white hover:border-transparent hover:text-green-500 hover:bg-white lg:mt-0"><svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 10 0 10 20" fill="currentColor"
+                        class="w-5 h-5 mt-1 mb-1 font-bold">
                         <path fill-rule="evenodd"
                             d="M17 4.25A2.25 2.25 0 0 0 14.75 2h-5.5A2.25 2.25 0 0 0 7 4.25v2a.75.75 0 0 0 1.5 0v-2a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-.75.75h-5.5a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 0-1.5 0v2A2.25 2.25 0 0 0 9.25 18h5.5A2.25 2.25 0 0 0 17 15.75V4.25Z"
                             clip-rule="evenodd" />
@@ -38,8 +33,7 @@
                             d="M14 10a.75.75 0 0 0-.75-.75H3.704l1.048-.943a.75.75 0 1 0-1.004-1.114l-2.5 2.25a.75.75 0 0 0 0 1.114l2.5 2.25a.75.75 0 1 0 1.004-1.114l-1.048-.943h9.546A.75.75 0 0 0 14 10Z"
                             clip-rule="evenodd" />
                     </svg>
-                </a>
-
+                </button>
             </div>
         </div>
     </nav>

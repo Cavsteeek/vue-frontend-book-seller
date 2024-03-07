@@ -1,16 +1,11 @@
 <template>
-    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    <div id="body" class="bg-slate-100 flex h-screen">
+    <div id="body" class="bg-slate-100 flex h-screen w-screen">
         <div class="border border-slate-200 pt-10 pb-4 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
             style="margin-top: 145px;">
-            <!-- Sign Up
-            <h2 class="text-3xl font-semibold text-center mb-2 font-sans">Sign Up
-            </h2> -->
 
             <!-- Register ...... -->
             <h2 class="text-3xl font-semibold text-center mt-5 ">Register To Get Started!
             </h2>
-
 
             <form @submit.prevent="signUp" class="mt-3">
                 <!-- FName and LName -->
