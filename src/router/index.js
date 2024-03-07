@@ -8,6 +8,7 @@ import UserDashboard from "../views/UserDashboard";
 import Books from "../views/Books"
 import AddBooks from "../views/AddBooks"
 import Orders from "../views/Orders"
+import AdminOrders from "../views/AdminOrders"
 import Customers from "../views/Customers"
 
 const routes = [
@@ -52,6 +53,11 @@ const routes = [
     component: AddBooks,
   },
   {
+    path: "/admin-orders",
+    name: "AdminOrders",
+    component: AdminOrders,
+  },
+  {
     path: "/orders",
     name: "Orders",
     component: Orders,
@@ -61,6 +67,7 @@ const routes = [
     name: "Customers",
     component: Customers,
   },
+
 ];
 
 const router = createRouter({

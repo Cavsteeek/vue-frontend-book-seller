@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex items-center bg-green-500 px-6 py-6 w-screen">
+    <nav class="flex items-center justify-between bg-green-500 px-6 py-6 w-screen">
         <div class="flex items-center text-white mr-6">
             <span class="font-semibold text-2xl tracking-tight">Cavsteek's Book Store</span>
         </div>
@@ -12,14 +12,17 @@
                 </svg>
             </button>
         </div>
-        <div class="ml-72 block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="ml-60 block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="lg:flex-grow mt-1">
-                <router-link to="/books"
+                <router-link to="/add-books"
                     class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">View
                     Books</router-link>
-                <router-link to="/orders"
+                <router-link to="/admin-orders"
                     class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4"> View
                     Orders</router-link>
+                <router-link to="/all-customers"
+                    class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white">View
+                    Users</router-link>
             </div>
             <div>
                 <button @click="logout"
@@ -37,16 +40,16 @@
             </div>
         </div>
     </nav>
-
     <div class="px-5 py-5">
         <table class="table-fixed border-separate m-auto w-screen">
             <div class="">
                 <thead>
                     <tr class="text-left px-2 py-2">
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Action</th>
+                        <th>User ID</th>
+                        <th>Book ID</th>
+                        <th>Book</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
             </div>
@@ -54,34 +57,36 @@
                 <tbody>
                     <tr class="text-left font-semibold">
                         <td class="">1</td>
-                        <td class="">In Every Mirror She's Black</td>
-                        <td class="">Adewale.O.O</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
                     </tr>
                     <tr class="text-left font-semibold">
                         <td class="">2</td>
-                        <td class="">Witchy Woman</td>
-                        <td class="">The Eagles</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
                     </tr>
                     <tr class="text-left font-semibold">
                         <td class="">3</td>
-                        <td class="">Shining Star</td>
-                        <td class="">Earth, Wind, and Fire</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class=""></td>
                     </tr>
                 </tbody>
             </div>
         </table>
     </div>
+    <div>
+
+    </div>
 </template>
 
 <script>
 export default {
-    name: "Books"
+    name: "AdminOrders"
 }
 </script>
-

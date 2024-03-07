@@ -17,7 +17,7 @@
                 <router-link to="/add-books"
                     class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">View
                     Books</router-link>
-                <router-link to="/orders"
+                <router-link to="/admin-orders"
                     class="block text-md mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4"> View
                     Orders</router-link>
                 <router-link to="/all-customers"
