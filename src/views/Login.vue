@@ -52,9 +52,9 @@
 
             <!-- Forgot Password -->
             <button class="font-semibold font-sans ml-28">
-                <a class="hover:rounded-md hover:px-2 py-2 hover:bg-green-800 hover:text-white"
-                    href="/forgotpassword">Forgot
-                    Password?</a></button> <br><br>
+                <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-green-800
+                hover:text-white">Forgot
+                    Password?</router-link></button> <br><br>
 
             <!-- Sign up -->
             <button class="font-semibold font-sans ml-20">Don't have an

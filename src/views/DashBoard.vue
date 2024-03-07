@@ -1,139 +1,57 @@
 <template>
-    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <svg xmlns="http://www.w3.org/2000/svg" x="1px" y="1px" width="30" height="30" viewBox="0 0 64 64" class="mr-2">
-                <path fill="#85cbf8" fill-rule="evenodd"
-                    d="M60,32c0,15.46-12.54,28-28,28c-1.26,0-5,0-5,0 s2.9-1.43,6.64-4.06C39.89,51.57,48.5,43.88,50,34c0.15-1,0-0.99,0-2c0-10.76-7.27-18.89-18-19c-10.77-0.11-18.75,8.23-19,19 c-0.21,8.85,5.1,15.34,13,18c1.51,0.51,1,2.41,1,4v5C13.3,57.17,4,46.2,4,32C4,16.54,16.54,4,32,4S60,16.54,60,32z"
-                    clip-rule="evenodd"></path>
-                <path fill="#7bbeeb"
-                    d="M4.153,32H4c0,14.2,8.3,25.17,22,27l0,0c0.534-1.887-0.512-3.819-2.35-4.503 C15.616,51.51,9.601,44.332,8.274,35.632C7.959,33.563,6.245,32,4.153,32z">
-                </path>
-                <path fill="#8d6c9f"
-                    d="M11.18,43.68c-0.5,0.33-1.17,0.17-1.44-0.36c-0.818-1.586-1.462-3.269-1.925-5.014 c-0.149-0.562,0.233-1.129,0.806-1.228h0.003c0.517-0.089,1.002,0.24,1.135,0.747c0.417,1.587,1.002,3.117,1.742,4.555 C11.74,42.84,11.6,43.4,11.18,43.68z">
-                </path>
-                <path fill="#8d6c9f"
-                    d="M13.96,47.63l-0.01,0.01c-0.41,0.41-1.1,0.39-1.47-0.06c-0.187-0.233-0.37-0.472-0.548-0.714 c-0.343-0.467-0.239-1.123,0.244-1.443l0.001-0.001c0.437-0.29,1.029-0.198,1.344,0.222c0.165,0.221,0.335,0.44,0.509,0.656 C14.34,46.7,14.33,47.26,13.96,47.63z">
-                </path>
-                <path fill="#8d6c9f"
-                    d="M18.36,51.66c-0.32,0.48-0.97,0.61-1.43,0.26c-0.569-0.426-1.119-0.88-1.644-1.359 c-0.412-0.375-0.411-1.026-0.017-1.42l0,0c0.376-0.376,0.988-0.406,1.381-0.048c0.465,0.425,0.954,0.83,1.461,1.216 C18.54,50.63,18.65,51.22,18.36,51.66z">
-                </path>
-                <path fill="#8d6c9f"
-                    d="M32,61C16.009,61,3,47.99,3,32C3,16.009,16.009,3,32,3c15.99,0,29,13.009,29,29 C61,47.99,47.99,61,32,61z M32,5C17.112,5,5,17.112,5,32s12.112,27,27,27s27-12.112,27-27S46.888,5,32,5z">
-                </path>
-                <g>
-                    <path fill="#8d6c9f"
-                        d="M28.096,60.711c-0.408,0-0.814-0.121-1.164-0.356C26.349,59.962,26,59.308,26,58.604v-7.472 c0-0.047-0.067-0.069-0.075-0.072c-9.136-2.909-14.93-11.97-13.774-21.544l0,0c1.094-9.061,8.476-16.374,17.553-17.387 c5.778-0.646,11.329,1.117,15.627,4.961C49.569,20.882,52,26.317,52,32c0,3.731-1.034,7.372-2.992,10.527 c-3.145,5.071-14.69,15.812-20.127,18.029C28.627,60.66,28.361,60.711,28.096,60.711z M14.136,29.755 c-1.041,8.623,4.173,16.782,12.397,19.4C27.411,49.436,28,50.231,28,51.132v7.472c0,0.039,0.016,0.07,0.048,0.092 c4.987-1.992,16.363-12.55,19.26-17.223C49.069,38.635,50,35.359,50,32c0-5.115-2.188-10.006-6.004-13.42 c-3.867-3.459-8.866-5.047-14.071-4.464C21.76,15.028,15.12,21.605,14.136,29.755L14.136,29.755z">
-                    </path>
-                </g>
-                <g>
-                    <path fill="#8d6c9f"
-                        d="M41.087,43.639c-0.281,0-0.562-0.119-0.76-0.35l-1.3-1.52c-0.359-0.42-0.31-1.052,0.109-1.41 c0.419-0.356,1.052-0.31,1.41,0.109l1.3,1.52c0.359,0.42,0.31,1.052-0.109,1.41C41.549,43.56,41.317,43.639,41.087,43.639z">
-                    </path>
-                    <path fill="#8d6c9f"
-                        d="M44.465,39.353c-0.152,0-0.308-0.035-0.454-0.109l-1.781-0.909 c-0.491-0.251-0.687-0.854-0.436-1.346c0.25-0.491,0.849-0.688,1.346-0.436l1.781,0.909c0.491,0.251,0.687,0.854,0.436,1.346 C45.18,39.153,44.829,39.353,44.465,39.353z">
-                    </path>
-                    <path fill="#8d6c9f"
-                        d="M45.946,34.097c-0.026,0-0.052-0.001-0.078-0.003l-1.994-0.155 c-0.551-0.043-0.963-0.524-0.92-1.074c0.043-0.552,0.523-0.966,1.074-0.92l1.994,0.155c0.551,0.043,0.963,0.524,0.92,1.074 C46.901,33.698,46.464,34.097,45.946,34.097z">
-                    </path>
-                    <path fill="#8d6c9f"
-                        d="M43.409,29.293c-0.422,0-0.813-0.269-0.951-0.691c-0.171-0.524,0.117-1.089,0.643-1.26 l1.902-0.618c0.523-0.171,1.089,0.116,1.26,0.643c0.171,0.524-0.117,1.089-0.643,1.26l-1.902,0.618 C43.615,29.277,43.512,29.293,43.409,29.293z">
-                    </path>
-                    <path fill="#8d6c9f"
-                        d="M41.119,25.213c-0.281,0-0.562-0.119-0.76-0.35c-0.359-0.42-0.31-1.052,0.109-1.41l1.52-1.3 c0.419-0.356,1.052-0.31,1.41,0.109c0.359,0.42,0.31,1.052-0.109,1.41l-1.52,1.3C41.581,25.134,41.35,25.213,41.119,25.213z">
-                    </path>
-                </g>
-            </svg>
-            <span class="font-semibold text-xl tracking-tight">Cavsteek's Book Store</span>
+    <nav class="flex items-center justify-between bg-green-500 p-4">
+        <div class="flex items-center text-white mr-6">
+            <span class="font-semibold text-2xl tracking-tight">Cavsteek's Book Store</span>
         </div>
         <div class="block lg:hidden">
             <button
-                class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+                class="flex items-center px-3 py-2 border rounded text-green-200 border-green-400 hover:text-white hover:border-white">
                 <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                 </svg>
             </button>
         </div>
-        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="w-full ml-3 block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                    Books
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                    Orders
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                    Users
-                </a>
+                <router-link to="/add-books"
+                    class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4">View
+                    Books</router-link>
+                <router-link to="/orders"
+                    class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white mr-4"> View
+                    Orders</router-link>
+                <router-link to="/all-customers"
+                    class="block text-lg mt-4 lg:inline-block lg:mt-0 text-green-200 hover:text-white">View
+                    Users</router-link>
             </div>
             <div>
-                <a href="#"
-                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+                <button @click="logout"
+                    class="inline-block flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-green-500 hover:bg-white mt- lg:mt-0"><span
+                        class="text-lg">Logout</span>
+                    &nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        class="w-5 h-5 mt-1">
+                        <path fill-rule="evenodd"
+                            d="M17 4.25A2.25 2.25 0 0 0 14.75 2h-5.5A2.25 2.25 0 0 0 7 4.25v2a.75.75 0 0 0 1.5 0v-2a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-.75.75h-5.5a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 0-1.5 0v2A2.25 2.25 0 0 0 9.25 18h5.5A2.25 2.25 0 0 0 17 15.75V4.25Z"
+                            clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M14 10a.75.75 0 0 0-.75-.75H3.704l1.048-.943a.75.75 0 1 0-1.004-1.114l-2.5 2.25a.75.75 0 0 0 0 1.114l2.5 2.25a.75.75 0 1 0 1.004-1.114l-1.048-.943h9.546A.75.75 0 0 0 14 10Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+
             </div>
         </div>
     </nav>
-    <div class="px-5 py-5">
-        <!-- <h4 class="mb-5">dashboard</h4> -->
-        <table class="table-fixed border-separate m-auto w-screen">
-            <div class="">
-                <thead>
-                    <tr class="text-left px-2 py-2">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </div>
-            <div class="bg-slate-300">
-                <tbody>
-                    <tr class="text-left font-semibold">
-                        <td class="">1</td>
-                        <td class="">In Every Mirror She's Black</td>
-                        <td class="">Adewale.O.O</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-
-
-                    </tr>
-                    <tr class="text-left font-semibold">
-                        <td class="">2</td>
-                        <td class="">Witchy Woman</td>
-                        <td class="">The Eagles</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-                    </tr>
-                    <tr class="text-left font-semibold">
-                        <td class="">3</td>
-                        <td class="">Shining Star</td>
-                        <td class="">Earth, Wind, and Fire</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td class="w-3 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red"
-                                class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-                    </tr>
-                </tbody>
-            </div>
-        </table>
-    </div>
 </template>
 
 <script>
+
 export default {
-    name: "DashBoard"
+    name: "DashBoard",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>

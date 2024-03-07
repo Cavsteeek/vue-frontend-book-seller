@@ -5,6 +5,10 @@ import SignUp from "../views/SignUp.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import DashBoard from "../views/DashBoard.vue";
 import UserDashboard from "../views/UserDashboard";
+import Books from "../views/Books"
+import AddBooks from "../views/AddBooks"
+import Orders from "../views/Orders"
+import Customers from "../views/Customers"
 
 const routes = [
   {
@@ -33,9 +37,29 @@ const routes = [
     component: DashBoard,
   },
   {
-    path: "/userdashboard",
+    path: "/user-dashboard",
     name: "UserDashboard",
     component: UserDashboard,
+  },
+  {
+    path: "/books",
+    name: "Books",
+    component: Books,
+  },
+  {
+    path: "/add-books",
+    name: "AddBooks",
+    component: AddBooks,
+  },
+  {
+    path: "/orders",
+    name: "Orders",
+    component: Orders,
+  },
+  {
+    path: "/all-customers",
+    name: "Customers",
+    component: Customers,
   },
 ];
 
