@@ -87,6 +87,11 @@
 
 <script>
 export default {
-    name: "AdminOrders"
+    name: "AdminOrders",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>

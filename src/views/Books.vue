@@ -81,7 +81,12 @@
 
 <script>
 export default {
-    name: "Books"
+    name: "Books",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>
 

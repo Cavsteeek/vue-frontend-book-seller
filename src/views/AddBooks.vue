@@ -45,6 +45,19 @@
             <div class="">
                 <thead>
                     <tr class="text-left px-2 py-2">
+                        <th class="text-2xl">All Books</th>
+                        <th></th>
+                        <th></th>
+                        <th class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
+                                Cart</button></th>
+                    </tr>
+                    <tr class="text-left px-2 py-2">
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                    <tr class="text-left px-2 py-2">
                         <th>Id</th>
                         <th>Name</th>
                         <th>Author</th>
@@ -101,6 +114,11 @@
 
 <script>
 export default {
-    name: "AddBooks"
+    name: "AddBooks",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
-    <div id="body" class="bg-slate-100 flex h-screen w-screen">
+    <div id="body" class="block bg-slate-100 flex w-screen h-screen">
         <div class="border border-slate-200 pt-10 pb-4 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
-            style="margin-top: 145px;">
+            style="margin-top: 80px;">
 
             <!-- Register ...... -->
             <h2 class="text-3xl font-semibold text-center mt-5 ">Register To Get Started!

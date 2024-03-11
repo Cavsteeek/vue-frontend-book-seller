@@ -84,6 +84,11 @@
 
 <script>
 export default {
-    name: "Customers"
+    name: "Customers",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>

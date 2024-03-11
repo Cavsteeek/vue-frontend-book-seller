@@ -41,6 +41,11 @@
 
 <script>
 export default {
-    name: "UserDashboard"
+    name: "UserDashboard",
+    methods: {
+        logout() {
+            this.$router.push({ path: '/login' });
+        }
+    }
 }
 </script>
