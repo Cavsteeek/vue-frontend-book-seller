@@ -1,7 +1,7 @@
 <template>
     <div id="body" class="block bg-slate-100 flex w-screen h-screen">
         <div class="border border-slate-200 pt-10 pb-4 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
-            style="margin-top: 80px;">
+            style="margin-top: 60px;">
 
             <!-- Register ...... -->
             <h2 class="text-3xl font-semibold text-center mt-5 ">Register To Get Started!
@@ -16,8 +16,8 @@
                             d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
                     <!-- First name -->
-                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:outline-none" type="text"
-                        v-model="firstName" placeholder="Firstname" required>
+                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
+                        type="text" v-model="firstName" placeholder="Firstname" required>
 
                     &NonBreakingSpace;
                     &NonBreakingSpace;
@@ -28,8 +28,8 @@
                             d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
                     <!-- Last name -->
-                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:outline-none" type="text"
-                        placeholder="Lastname" v-model="lastName" required>
+                    <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
+                        type="text" placeholder="Lastname" v-model="lastName" required>
 
                 </div>
                 <br>
@@ -44,22 +44,23 @@
                             d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
                     </svg>
                     <!-- Email -->
-                    <input class=" font-sans px-2 h-7 text-left text-wider focus:outline-none" type="email" id="emailInput"
-                        placeholder="Email" v-model="email" required>
+                    <input class=" font-sans px-2 h-7 text-left text-wider focus:ring-white rounded-md border-hidden"
+                        type="email" id="emailInput" placeholder="Email" v-model="email" required>
                 </div>
                 <br>
 
 
-                <!-- Phone Number and Password -->
-                <div class="flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-5 mt-1">
-                        <path fill-rule="evenodd"
-                            d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
-                            clip-rule="evenodd" />
+                <!-- Username and Password -->
+                <div class="flex focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"
+                        style="margin-top: 6px;">
+                        <path
+                            d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
-                    <!-- Phone Number -->
-                    <input id="input" class=" font-sans px-2 h-7 text-left focus:outline-none rounded-md    " type="text"
-                        placeholder="Username" v-model="username" required>
+
+                    <!-- Username -->
+                    <input id="input" class=" font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
+                        type="text" placeholder="Username" v-model="username" required>
 
                     &NonBreakingSpace;
                     &NonBreakingSpace;
@@ -71,8 +72,8 @@
                             clip-rule="evenodd" />
                     </svg>
                     <!-- Password -->
-                    <input id="input" class="font-sans px-2 h-7 text-left focus:outline-none" type="password"
-                        placeholder="Password" v-model="password" required>
+                    <input id="input" class="block font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
+                        type="password" placeholder="Password" v-model="password" required>
                 </div>
 
                 <!-- Sign Up Button -->
@@ -84,7 +85,8 @@
             <footer class="mt-3">
                 <!-- Login -->
                 <button class="font-semibold font-sans m-2 ml-20 text-center">Already have an
-                    account? <a class="text-gray-900 font-3xl font-bold text-right" href="/login">Login</a></button>
+                    account? <router-link class="text-gray-900 font-3xl font-bold text-right"
+                        to="/login">Login</router-link></button>
                 <br><br>
             </footer>
         </div>

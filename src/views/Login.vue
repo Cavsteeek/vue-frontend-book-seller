@@ -1,7 +1,7 @@
 <template>
     <div id="body" class="bg-slate-100 flex w-screen h-screen">
         <div class="border border-slate-200 pt-10 pb-2 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
-            style="margin-top: 80px;">
+            style="margin-top: 60px;">
 
             <!-- Login -->
             <h2 class="text-3xl font-semibold text-center mb-2 font-sans">Login
@@ -20,7 +20,7 @@
                             d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
                     </svg>
                     <!-- Username -->
-                    <input class=" font-sans px-2 h-7 text-left text-wider focus:outline-none mt-4" type="text"
+                    <input class=" font-sans px-2 h-7 text-left text-wider focus:ring-white mt-4 border-hidden" type="text"
                         id="userInput" placeholder="Username" v-model="username" required>
                 </div>
                 <br>
@@ -34,8 +34,8 @@
                             clip-rule="evenodd" />
                     </svg>
                     <!-- Password -->
-                    <input id="input" class="font-sans px-2 h-7 text-left mt-2 focus:outline-none" v-model="password"
-                        type="password" placeholder="Password" requried>
+                    <input id="input" class="font-sans px-2 h-7 text-left mt-2 focus:ring-white border-hidden"
+                        v-model="password" type="password" placeholder="Password" requried>
                 </div>
 
                 <!-- login Button -->
@@ -46,15 +46,15 @@
             </form><br>
 
             <!-- Forgot Password -->
-            <button class="font-semibold font-sans ml-28">
+            <button class="font-semibold font-sans ml-36">
                 <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
                 hover:text-white">Forgot
                     Password?</router-link></button> <br><br>
 
             <!-- Sign up -->
             <button class="font-semibold font-sans ml-20">Don't have an
-                account? <a class="text-gray-900 font-3xl font-bold mt-10" href="/signup">Sign
-                    Up</a></button>
+                account? <router-link to="/signup" class="text-gray-900 font-3xl font-bold mt-10">Sign
+                    Up</router-link></button>
             <br><br>
 
         </div>
