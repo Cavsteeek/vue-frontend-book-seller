@@ -76,7 +76,7 @@
                 </div>
 
                 <!-- Sign Up Button -->
-                <button class="ml-30 text-md rounded-md tracking-wider px-1 py-1 bg-green-800 mt-8 text-white font-bold"
+                <button class="ml-30 text-md rounded-md tracking-wider px-1 py-1 bg-gray-900 mt-8 text-white font-bold"
                     id="signupButton">SIGN UP
                 </button> <br><br>
             </form>
@@ -84,7 +84,7 @@
             <footer class="mt-3">
                 <!-- Login -->
                 <button class="font-semibold font-sans m-2 ml-20 text-center">Already have an
-                    account? <a class="text-green-800 font-3xl font-bold text-right" href="/login">Login</a></button>
+                    account? <a class="text-gray-900 font-3xl font-bold text-right" href="/login">Login</a></button>
                 <br><br>
             </footer>
         </div>

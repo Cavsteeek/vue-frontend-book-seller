@@ -40,20 +40,20 @@
 
                 <!-- login Button -->
                 <button
-                    class="ml-30 text-md border border-white rounded-md tracking-wider px-1 py-1 bg-green-800 mt-8 text-white font-bold"
+                    class="ml-30 text-md border border-white rounded-md tracking-wider px-1 py-1 bg-gray-900 mt-8 text-white font-bold"
                     id="loginButton">LOGIN
                 </button> <br><br>
             </form><br>
 
             <!-- Forgot Password -->
             <button class="font-semibold font-sans ml-28">
-                <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-green-800
+                <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
                 hover:text-white">Forgot
                     Password?</router-link></button> <br><br>
 
             <!-- Sign up -->
             <button class="font-semibold font-sans ml-20">Don't have an
-                account? <a class="text-green-800 font-3xl font-bold mt-10" href="/signup">Sign
+                account? <a class="text-gray-900 font-3xl font-bold mt-10" href="/signup">Sign
                     Up</a></button>
             <br><br>
 

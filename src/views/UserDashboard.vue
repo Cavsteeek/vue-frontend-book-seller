@@ -1,7 +1,7 @@
 <template>
     <nav class="flex items-center bg-green-500 px-6 py-6 w-screen">
         <div class="flex items-center text-white mr-6">
-            <span class="font-semibold text-2xl tracking-tight">Cavsteek's Book Store</span>
+            <span class="font-semibold text-2xl tracking-tight"></span>
         </div>
         <div class="block lg:hidden">
             <button
