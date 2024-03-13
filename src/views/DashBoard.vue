@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import 'flowbite';
 
 export default {
     name: "DashBoard",
