@@ -10,6 +10,7 @@ import AddBooks from "../views/AddBooks"
 import Orders from "../views/Orders"
 import OrderHistory from "../views/OrderHistory"
 import Customers from "../views/Customers"
+import ViewBooks from '@/views/ViewBooks'
 
 const routes = [
   {
@@ -67,6 +68,12 @@ const routes = [
     name: "Customers",
     component: Customers,
   },
+  {
+    path: "/all-books",
+    name: "ViewBooks",
+    component: ViewBooks,
+  },
+
 
 ];
 
