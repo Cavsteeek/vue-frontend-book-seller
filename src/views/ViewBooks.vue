@@ -2,7 +2,7 @@
     <AdminNavbar />
     <router-view></router-view>
     <div class="px-5 py-5">
-        <table class="table-fixed border-separate m-auto w-screen">
+        <!--        <table class="table-fixed border-separate m-auto w-screen">
             <div class="">
                 <thead>
                     <tr class="text-left px-2 py-2">
@@ -67,11 +67,10 @@
                                     clip-rule="evenodd" />
                             </svg></td>
                     </tr>
-                </tbody>
-            </div>
-        </table>
+                </tbody> -->
     </div>
-</template>
+    </table>
+</div></template>
 
 <script>
 import AdminNavbar from '@/components/AdminNavbar.vue'

@@ -1,22 +1,51 @@
 <template>
     <AdminNavbar />
     <router-view></router-view>
-    <div class="px-5 py-5">
-        <form class="text-center mx-auto">
-            <div class="mb-5">
-                <label for="book-name" class="mb-2 text-sm font-medium text-gray-900 ">Name</label><br>
-                <input type="text" name="Book Name" id="book-name">
-            </div>
+    <div class="container">
+        <div class=" mt-9" style="">
 
-            <div class="mb-5">
-                <label for="book-price" class="mb-2 text-sm font-medium text-gray-900">Price</label><br>
-                <input type="number" name="Book Price" id="book-price" class="focus:ring-white4">
-            </div>
+            <!-- AddBook -->
+            <h2 class="text-3xl font-semibold text-center mb-5 font-sans">Add Book
+            </h2>
+            <div class="text-center">
+                <form @submit.prevent="" class="">
 
-            <div class="mb-5 text-center">
-                <button type="submit" class="border border-black rounded-lg px-1 py-1">Add Book</button>
+                    <!-- Book Title -->
+                    <div class="">
+                        <!-- Book Title -->
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4" type="text"
+                            id="userInput" placeholder="Book Title" v-model="username" required>
+                    </div>
+                    <br>
+                    <!-- Book Author -->
+                    <div class="">
+                        <!-- Book Author -->
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                            id="userInput" placeholder="Book Author" v-model="username" required>
+                    </div>
+                    <br>
+                    <!-- Book Price -->
+                    <div class="">
+                        <!-- Book Price -->
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                            id="userInput" placeholder="Book Price" v-model="username" required>
+                    </div>
+                    <br>
+                    <!-- Book Description -->
+                    <div class="">
+                        <!-- Book Description -->
+                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                            id="userInput" placeholder="Book Description" v-model="username"></textarea>
+                    </div>
+
+                    <!-- Add Book -->
+                    <button
+                        class="ml-30 text-md border border-white rounded-md tracking-wider px-2 py-2 bg-gray-900 mt-8 text-white font-bold"
+                        id="loginButton">Submit
+                    </button>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -27,3 +56,13 @@ export default {
     components: { AdminNavbar }
 }
 </script>
+
+<style scoped>
+#loginButton {
+    width: 374px;
+}
+
+#userInput {
+    width: 374px;
+}
+</style>
