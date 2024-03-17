@@ -78,6 +78,8 @@ export default {
                     if (response.status === 200) {
                         alert('Book has been added successfully');
                         console.log(response.data)
+                    } else {
+                        console.log(response.data)
                     }
                 })
                 .catch(error => {

@@ -70,7 +70,6 @@ export default {
     name: "Login",
     data() {
         return {
-            /* email:'', */
             username: '',
             password: '',
         };
@@ -87,9 +86,10 @@ export default {
             await axios.post(apiUrl, userData)
                 .then(response => {
                     if (response.status === 200) {
+                        localStorage.setItem("access_token", response.data.token)
+                        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
                         this.$router.push('/dashboard')
                         console.log(response.data)
-                        localStorage.setItem("access_token", response.data.token)
                     } else {
                         console.log(response.data)
                     }

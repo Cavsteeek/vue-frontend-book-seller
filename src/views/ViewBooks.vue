@@ -1,6 +1,7 @@
 <template>
     <AdminNavbar />
     <router-view></router-view>
+    <div>{{ books }}</div>
     <!--<div class="px-5 py-5">
                 <table class="table-fixed border-separate m-auto w-screen">
             <div class="">
@@ -75,8 +76,16 @@
 
 <script>
 import AdminNavbar from '@/components/AdminNavbar.vue'
+import axios from 'axios'
+
 export default {
     name: "ViewBooks",
-    components: { AdminNavbar }
+    components: { AdminNavbar },
+
+    data() {
+        return {
+            books: {},
+        };
+    }
 }
 </script>
