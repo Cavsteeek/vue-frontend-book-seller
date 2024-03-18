@@ -84,11 +84,29 @@ export default {
 
     data() {
         return {
-            books: {},
+            books: [],
         };
     },
 
     methods: {
+        async getAllBooks() {
+            /* const token = localStorage.getItem("access_token") */
+            /* {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            } */
+            const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
+            await axios.get(apiUrl)
+                .then((response) => {
+                    console.log(response);
+                    this.res = JSON.stringify(response.data);
+                })
+                .catch((errors) => {
+                    console.log(errors);
+                });
+
+        },
 
     }
 }
