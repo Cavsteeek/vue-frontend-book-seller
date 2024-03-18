@@ -1,28 +1,7 @@
 <template>
     <AdminNavbar />
     <router-view></router-view>
-    <!-- <div>{{ books }}</div> -->
     <h2>Books</h2>
-    <!--  <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.price }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
- -->
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left">
