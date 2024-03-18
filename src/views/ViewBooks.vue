@@ -1,82 +1,77 @@
 <template>
     <AdminNavbar />
     <router-view></router-view>
-    <div>{{ books }}</div>
-    <!--<div class="px-5 py-5">
-                <table class="table-fixed border-separate m-auto w-screen">
-            <div class="">
-                <thead>
-                    <tr class="text-left px-2 py-2">
-                        <th class="text-2xl">All Books</th>
-                        <th></th>
-                        <th></th>
-                        <th class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></th>
-                    </tr>
-                    <tr class="text-left px-2 py-2">
-                        <th> </th>
-                        <th> </th>
-                        <th> </th>
-                        <th> </th>
-                    </tr>
-                    <tr class="text-left px-2 py-2">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </div>
-            <div class="bg-slate-300">
-                <tbody>
-                    <tr class="text-left font-semibold">
-                        <td class="">1</td>
-                        <td class="">In Every Mirror She's Black</td>
-                        <td class="">Adewale.O.O</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-
-
-                    </tr>
-                    <tr class="text-left font-semibold">
-                        <td class="">2</td>
-                        <td class="">Witchy Woman</td>
-                        <td class="">The Eagles</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-                    </tr>
-                    <tr class="text-left font-semibold">
-                        <td class="">3</td>
-                        <td class="">Shining Star</td>
-                        <td class="">Earth, Wind, and Fire</td>
-                        <td class=""><button class="border bg-slate-500 text-white rounded-md py-1 px-1">Add To
-                                Cart</button></td>
-                        <td class="w-3 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red"
-                                class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
-                                    clip-rule="evenodd" />
-                            </svg></td>
-                    </tr>
-                </tbody> 
+    <!-- <div>{{ books }}</div> -->
+    <h2>Books</h2>
+    <!--  <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    </table>
-</div>-->
+ -->
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Description
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Author
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="book in books" :key="book.id" class="">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        {{ book.title }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ book.description }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ book.author }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ book.price }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
 import AdminNavbar from '@/components/AdminNavbar.vue'
 import axios from 'axios'
+import 'flowbite'
 
 export default {
     name: "ViewBooks",
@@ -90,24 +85,24 @@ export default {
 
     methods: {
         async getAllBooks() {
-            /* const token = localStorage.getItem("access_token") */
-            /* {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            } */
-            const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
-            await axios.get(apiUrl)
-                .then((response) => {
-                    console.log(response);
-                    this.res = JSON.stringify(response.data);
-                })
-                .catch((errors) => {
-                    console.log(errors);
+            try {
+                const token = localStorage.getItem("access_token");
+                const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
+                const response = await axios.get(apiUrl, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
                 });
-
+                this.books = (response.data);
+                console.log(this.books);
+            } catch (error) {
+                console.error('Error fetching books:', error);
+            }
         },
+    },
 
+    mounted() {
+        this.getAllBooks();
     }
 }
 </script>
