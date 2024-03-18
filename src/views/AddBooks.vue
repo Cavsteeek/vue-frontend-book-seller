@@ -52,6 +52,7 @@
 <script>
 import AdminNavbar from '@/components/AdminNavbar.vue'
 import axios from 'axios'
+
 export default {
     name: "AddBooks",
     components: { AdminNavbar },
@@ -63,6 +64,7 @@ export default {
             price: '',
         };
     },
+
     methods: {
         async addBook() {
             const apiUrl = 'http://localhost:8080/api/v1/book';
@@ -73,7 +75,13 @@ export default {
                 author: this.author,
                 price: this.price,
             };
-            await axios.post(apiUrl, userData)
+
+            const token = localStorage.getItem("access_token");
+            await axios.post(apiUrl, userData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
                 .then(response => {
                     if (response.status === 200) {
                         alert('Book has been added successfully');

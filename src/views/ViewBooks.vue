@@ -86,6 +86,10 @@ export default {
         return {
             books: {},
         };
+    },
+
+    methods: {
+
     }
 }
 </script>

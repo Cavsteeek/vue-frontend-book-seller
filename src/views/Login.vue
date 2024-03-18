@@ -87,8 +87,8 @@ export default {
                 .then(response => {
                     if (response.status === 200) {
                         localStorage.setItem("access_token", response.data.token)
-                        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-                        this.$router.push('/dashboard')
+
+                        this.$router.push('/add-books')
                         console.log(response.data)
                     } else {
                         console.log(response.data)
