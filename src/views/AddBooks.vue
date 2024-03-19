@@ -84,8 +84,8 @@ export default {
             })
                 .then(response => {
                     if (response.status === 200) {
-                        alert('Book has been added successfully');
-                        console.log(response.data)
+                        alert(`Book has been added successfully`);
+                        console.log("Data: ", response.data)
                     } else {
                         console.log(response.data)
                     }
@@ -95,6 +95,7 @@ export default {
                 });
         },
     },
+
 }
 </script>
 

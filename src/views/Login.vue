@@ -89,7 +89,7 @@ export default {
                         localStorage.setItem("access_token", response.data.token)
 
                         this.$router.push('/add-books')
-                        console.log(response.data)
+                        console.log("Token: ", response.data)
                     } else {
                         console.log(response.data)
                     }

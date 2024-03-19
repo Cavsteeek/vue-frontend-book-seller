@@ -123,7 +123,7 @@ export default {
                 .then(response => {
                     if (response.status === 200) {
                         this.$router.push('/login')
-                        console.log(response.data)
+                        console.log("Token:", response.data)
                     } else {
                         console.log(response.data)
                     }

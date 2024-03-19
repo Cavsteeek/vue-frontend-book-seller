@@ -29,9 +29,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="book in books" :key="book.id" class="odd:bg-white even:bg-gray-200">
+                <tr v-for="(book, index) in books" :key="book.id" class="odd:bg-white even:bg-gray-200">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ book.id }}
+                        {{ index + 1 }}
                     </th>
                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ book.title }}
@@ -71,20 +71,26 @@ export default {
 
     methods: {
         async getAllBooks() {
-            try {
-                const token = localStorage.getItem("access_token");
-                const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
-                const response = await axios.get(apiUrl, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
+            const token = localStorage.getItem("access_token");
+            const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
+            await axios.get(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (response.status === 200) {
+                        this.books = (response.data);
+                        console.log(this.books);
+                        console.log("Token: ", token);
+                    } else {
+                        alert(`you must be signed in to view books...confirm you are signed in`)
+                        console.log(response.data)
                     }
+                })
+                .catch(error => {
+                    console.error('Error Fecthing books:', error);
                 });
-                this.books = (response.data);
-                console.log(this.books);
-                console.log(token);
-            } catch (error) {
-                console.error('Error fetching books:', error);
-            }
         },
     },
 
