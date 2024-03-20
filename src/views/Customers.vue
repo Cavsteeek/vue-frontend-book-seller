@@ -96,6 +96,31 @@ export default {
                     console.error('Error Fecthing Users:', error);
                 });
         },
+
+        async deleteBook(userId) {
+            const apiUrl = `http://localhost:8080/api/v1/book/${userId}`
+
+            const token = localStorage.getItem("access_token");
+
+            await axios.delete(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('User Deleted Successfully')
+                        console.log("Token: ", token);
+                        this.customers = this.customers.filter(user => user.id !== userId);
+                        this.getAllCustomers();
+                    } else {
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error Deleting book:', error);
+                });
+        },
     },
     mounted() {
         this.getAllCustomers();
