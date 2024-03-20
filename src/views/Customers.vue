@@ -38,10 +38,10 @@
                         {{ user.username }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ user.firstname }}
+                        {{ user.firstName }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ user.lastname }}
+                        {{ user.lastName }}
                     </td>
                     <td class="px-6 py-4">
                         {{ user.email }}
@@ -59,6 +59,8 @@
 
 <script>
 import AdminNavbar from '@/components/AdminNavbar.vue';
+import axios from 'axios'
+import 'flowbite'
 export default {
     name: "Customers",
     components: { AdminNavbar },
