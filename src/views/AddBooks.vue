@@ -83,7 +83,7 @@ export default {
                 }
             })
                 .then(response => {
-                    if (response.status === 200) {
+                    if (response.status >= 200 && response.status < 300) {
                         alert(`Book has been added successfully`);
                         console.log("Data: ", response.data)
                     } else {

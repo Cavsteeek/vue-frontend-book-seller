@@ -47,6 +47,8 @@
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                        <button @click="deleteBook(book.id)"
+                            class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
                     </td>
                 </tr>
             </tbody>
@@ -79,7 +81,7 @@ export default {
                 }
             })
                 .then(response => {
-                    if (response.status === 200) {
+                    if (response.status >= 200 && response.status < 300) {
                         this.books = (response.data);
                         console.log(this.books);
                         console.log("Token: ", token);
@@ -90,6 +92,31 @@ export default {
                 })
                 .catch(error => {
                     console.error('Error Fecthing books:', error);
+                });
+        },
+
+        async deleteBook(bookId) {
+            const apiUrl = `http://localhost:8080/api/v1/book/${bookId}`
+
+            const token = localStorage.getItem("access_token");
+
+            await axios.delete(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('Book Deleted Successfully')
+                        console.log("Token: ", token);
+                        this.books = this.books.filter(book => book.id !== bookId);
+                        this.getAllBooks();
+                    } else {
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error Deleting book:', error);
                 });
         },
     },

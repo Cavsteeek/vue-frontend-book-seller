@@ -121,7 +121,7 @@ export default {
 
             await axios.post(apiUrl, userData)
                 .then(response => {
-                    if (response.status === 200) {
+                    if (response.status >= 200 && response.status < 300) {
                         this.$router.push('/login')
                         console.log("Token:", response.data)
                     } else {

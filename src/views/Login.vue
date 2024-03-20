@@ -85,7 +85,7 @@ export default {
 
             await axios.post(apiUrl, userData)
                 .then(response => {
-                    if (response.status === 200) {
+                    if (response.status >= 200 && response.status < 300) {
                         localStorage.setItem("access_token", response.data.token)
 
                         this.$router.push('/add-books')
