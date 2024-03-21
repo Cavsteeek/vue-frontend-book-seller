@@ -48,7 +48,7 @@
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                        <button @click="deleteBook(user.id)"
+                        <button @click="deleteUser(user.id)"
                             class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
                     </td>
                 </tr>
@@ -97,8 +97,8 @@ export default {
                 });
         },
 
-        async deleteBook(userId) {
-            const apiUrl = `http://localhost:8080/api/v1/book/${userId}`
+        async deleteUser(userId) {
+            const apiUrl = `http://localhost:8080/api/v1/admin/delete-user/${userId}`
 
             const token = localStorage.getItem("access_token");
 

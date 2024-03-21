@@ -46,7 +46,7 @@
                         {{ book.price }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                        <button @click="updateBook" class="font-medium text-blue-600 hover:underline">Edit</button>
                         <button @click="deleteBook(book.id)"
                             class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
                     </td>
@@ -119,6 +119,16 @@ export default {
                     console.error('Error Deleting book:', error);
                 });
         },
+
+        updateBook() {
+            /*  const apiUrl = `http://localhost:8080/api/v1/book/update/${bookId}`
+ 
+             const token = localStorage.getItem("access_token");
+ 
+             await axios.put(apiUrl,)
+  */
+            this.$router.push({ path: '/edit-book' });
+        }
     },
 
     mounted() {

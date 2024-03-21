@@ -10,6 +10,7 @@ import Orders from "../views/Orders"
 import OrderHistory from "../views/OrderHistory"
 import Customers from "../views/Customers"
 import ViewBooks from '@/views/ViewBooks'
+import EditBook from '@/views/EditBook'
 import { jwtDecode } from "jwt-decode";
 
 const routes = [
@@ -74,7 +75,12 @@ const routes = [
     component: ViewBooks,
     meta: { requiresAuth: true },
   },
-
+  {
+    path: "/edit-book",
+    name: "EditBook",
+    component: EditBook,
+    meta: { requiresAuth: true },
+  },
 
 ];
 
