@@ -19,7 +19,6 @@ export default {
 
     methods: {
         async updateBook() {
-            // const bookId = this.$route.params.bookId;
 
             const apiUrl = `http://localhost:8080/api/v1/book/update/${this.bookId}`
 
