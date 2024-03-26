@@ -7,24 +7,32 @@ export default {
             title: '',
             author: '',
             price: '',
-            description: ''
+            description: '',
+            bookId: null
 
         };
     },
 
     mounted() {
-        const bookId = this.$route.params.bookId;
+        this.bookId = this.$route.params.bookId;
     },
 
     methods: {
         async updateBook() {
-            const bookId = this.$route.params.bookId;
+            // const bookId = this.$route.params.bookId;
 
-            const apiUrl = `http://localhost:8080/api/v1/book/update/${bookId}`
+            const apiUrl = `http://localhost:8080/api/v1/book/update/${this.bookId}`
 
             const token = localStorage.getItem("access_token");
 
-            await axios.put(apiUrl, {
+            const userData = {
+                title: this.title,
+                description: this.description,
+                author: this.author,
+                price: this.price,
+            };
+
+            await axios.put(apiUrl, userData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -42,7 +50,7 @@ export default {
             <h2 class="text-3xl font-semibold text-center mb-5 font-sans">Edit Book
             </h2>
             <div class="text-center">
-                <form @submit.prevent="" class="">
+                <form @submit.prevent="updateBook" class="">
 
                     <!-- Book Title -->
                     <div class="">
