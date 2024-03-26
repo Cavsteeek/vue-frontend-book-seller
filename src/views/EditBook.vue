@@ -37,6 +37,18 @@ export default {
                     'Authorization': `Bearer ${token}`
                 }
             })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert(`Book has been edited successfully`);
+                        console.log("Data: ", response.data)
+                        this.$router.push('/all-books')
+                    } else {
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error editing book:', error);
+                });
         }
     }
 }
