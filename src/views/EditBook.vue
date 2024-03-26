@@ -4,12 +4,22 @@ export default {
     name: "EditBook",
     data() {
         return {
-            books: [],
+            title: '',
+            author: '',
+            price: '',
+            description: ''
+
         };
     },
 
+    mounted() {
+        const bookId = this.$route.params.bookId;
+    },
+
     methods: {
-        async updateBook(bookId) {
+        async updateBook() {
+            const bookId = this.$route.params.bookId;
+
             const apiUrl = `http://localhost:8080/api/v1/book/update/${bookId}`
 
             const token = localStorage.getItem("access_token");

@@ -86,6 +86,7 @@ export default {
                     if (response.status >= 200 && response.status < 300) {
                         alert(`Book has been added successfully`);
                         console.log("Data: ", response.data)
+                        window.location.reload();
                     } else {
                         console.log(response.data)
                     }
@@ -95,6 +96,7 @@ export default {
                 });
         },
     },
+
 
 }
 </script>
