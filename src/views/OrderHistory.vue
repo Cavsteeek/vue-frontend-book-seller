@@ -1,7 +1,7 @@
 <template>
     <AdminNavbar />
     <router-view></router-view>
-    <div class="px-5 py-5">
+    <div class="px-5 py-5" v-if="userRole === 'ADMIN'">
         <table class="table-fixed border-separate m-auto w-full">
             <div class="">
                 <thead>
@@ -51,6 +51,11 @@ import AdminNavbar from '@/components/AdminNavbar.vue';
 export default {
     name: "OrderHistory",
     components: { AdminNavbar },
+    data() {
+        return {
+            userRole: localStorage.getItem('user_role') || '',
+        }
+    }
 
 }
 </script>
