@@ -86,9 +86,14 @@ export default {
             await axios.post(apiUrl, userData)
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
+                        const role = response.data.role;
                         localStorage.setItem("access_token", response.data.token)
-
-                        this.$router.push('/add-books')
+                        localStorage.setItem("user_role", role)
+                        if (role === 'ADMIN') {
+                            this.$router.push('/add-books')
+                        } else {
+                            this.$router.push('/books')
+                        }
                         console.log("Token: ", response.data)
                     } else {
                         console.log(response.data)
