@@ -2,6 +2,10 @@
     <NavBar />
     <router-view></router-view>
 
+    <div v-if="userRole !== 'USER'" class="text-red-500">
+        <p>You are not authorized to access this page.</p>
+    </div>
+
     <div class="px-5 py-5">
 
         <div class="flex">
@@ -70,6 +74,11 @@ export default {
     name: "Books",
     components: {
         NavBar,
+    },
+    data() {
+        return {
+            userRole: localStorage.getItem('user_role') || '',
+        }
     }
 
 }
