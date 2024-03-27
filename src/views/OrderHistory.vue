@@ -1,6 +1,11 @@
 <template>
-    <AdminNavbar />
-    <router-view></router-view>
+    <AdminNavbar v-if="userRole === 'ADMIN'" />
+    <router-view v-if="userRole === 'ADMIN'"></router-view>
+
+    <div v-if="userRole !== 'ADMIN'" class="text-red-500 text-center text-3xl mt-20">
+        <p>You are not authorized to access this page.</p>
+    </div>
+
     <div class="px-5 py-5" v-if="userRole === 'ADMIN'">
         <table class="table-fixed border-separate m-auto w-full">
             <div class="">
