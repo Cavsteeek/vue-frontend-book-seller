@@ -91,7 +91,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('access_token')
-  /* console.log('Token:', token); */
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!token) {
@@ -107,11 +106,11 @@ router.beforeEach((to, from, next) => {
       } else {
         next();
       }
-      next()
     }
   } else {
     next()
   }
 })
+
 
 export default router;
