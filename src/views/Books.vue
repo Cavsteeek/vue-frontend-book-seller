@@ -1,12 +1,12 @@
 <template>
-    <NavBar />
-    <router-view></router-view>
+    <NavBar v-if="userRole === 'USER'" />
+    <router-view v-if="userRole === 'USER'"></router-view>
 
-    <div v-if="userRole !== 'USER'" class="text-red-500">
+    <div v-if="userRole !== 'USER'" class="text-red-500 text-center text-3xl mt-20">
         <p>You are not authorized to access this page.</p>
     </div>
 
-    <div class="px-5 py-5">
+    <div class="px-5 py-5" v-if="userRole === 'USER'">
 
         <div class="flex">
 
