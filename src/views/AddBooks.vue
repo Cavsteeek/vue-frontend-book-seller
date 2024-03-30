@@ -67,6 +67,7 @@ export default {
             description: '',
             author: '',
             price: '',
+            userRole: localStorage.getItem('user_role') || '',
         };
     },
 
