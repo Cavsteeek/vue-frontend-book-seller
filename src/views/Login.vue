@@ -86,7 +86,7 @@ export default {
             await axios.post(apiUrl, userData)
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
-                        alert()
+                        alert('Login Successful')
                         const role = response.data.role;
                         localStorage.setItem("access_token", response.data.token)
                         localStorage.setItem("user_role", role)
@@ -97,6 +97,7 @@ export default {
                         }
                         console.log("Token: ", response.data)
                     } else {
+                        alert('Try Again')
                         console.log(response.data)
                     }
                 })
