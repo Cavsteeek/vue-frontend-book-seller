@@ -6,58 +6,60 @@
         <p>You are not authorized to access this page.</p>
     </div>
 
-    <h2 class="p-5 text-lg font-semibold text-center text-gray-900 bg-white">
-        CUSTOMERS
-    </h2>
-    <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left">
-            <thead class="text-xs text-gray-800 uppercase bg-gray-200">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        ID
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Username
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Firstname
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Lastname
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Email
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(user, index) in customers" :key="user.id" class="odd:bg-white even:bg-gray-200">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ index + 1 }}
-                    </th>
-                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ user.username }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ user.firstName }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ user.lastName }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ user.email }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                        <button @click="deleteUser(user.id)"
-                            class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div v-if="userRole === 'ADMIN'">
+        <h2 class="p-5 text-lg font-semibold text-center text-gray-900 bg-white">
+            CUSTOMERS
+        </h2>
+        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left">
+                <thead class="text-xs text-gray-800 uppercase bg-gray-200">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            ID
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Username
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Firstname
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Lastname
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(user, index) in customers" :key="user.id" class="odd:bg-white even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ index + 1 }}
+                        </th>
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ user.username }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.firstName }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.lastName }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                            <button @click="deleteUser(user.id)"
+                                class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
