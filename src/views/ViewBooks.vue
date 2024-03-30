@@ -1,9 +1,14 @@
 <template>
-    <AdminNavbar />
-    <router-view></router-view>
+    <AdminNavbar v-if="userRole === 'ADMIN'" />
+    <router-view v-if="userRole === 'ADMIN'"></router-view>
     <h2 class="p-5 text-lg font-semibold text-center text-gray-900 bg-white">
         BOOKS
     </h2>
+
+    <div v-if="userRole !== 'ADMIN'" class="text-red-500 text-center text-3xl mt-20">
+        <p>You are not authorized to access this page.</p>
+    </div>
+
     <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left">
             <thead class="text-xs text-gray-800 uppercase bg-gray-200">
@@ -68,6 +73,7 @@ export default {
     data() {
         return {
             books: [],
+            userRole: localStorage.getItem('user_role') || '',
         };
     },
 
