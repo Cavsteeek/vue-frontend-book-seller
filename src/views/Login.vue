@@ -86,7 +86,7 @@ export default {
             await axios.post(apiUrl, userData)
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
-                        alert('Login Successful')
+                        alert(`Login Successful`);
                         const role = response.data.role;
                         localStorage.setItem("access_token", response.data.token)
                         localStorage.setItem("user_role", role)
@@ -96,12 +96,15 @@ export default {
                             this.$router.push('/books')
                         }
                         console.log("Token: ", response.data)
-                    } else {
-                        alert('Try Again')
+                    }
+                    else {
                         console.log(response.data)
                     }
                 })
                 .catch(error => {
+                    if (error.response.status === 403) {
+                        alert(`Try Again, Unauthorized`);
+                    }
                     console.error('Error signing in:', error);
                 });
         },
