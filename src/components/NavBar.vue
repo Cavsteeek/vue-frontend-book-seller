@@ -3,6 +3,7 @@ import 'flowbite'
 export default {
     methods: {
         logout() {
+            localStorage.removeItem("access_token")
             this.$router.push({ path: '/login' });
         }
     }

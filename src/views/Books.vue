@@ -77,7 +77,7 @@ export default {
     },
     data() {
         return {
-            userRole: localStorage.getItem('user_role') || '',
+            userRole: localStorage.getItem('user_role'),
         }
     }
 
