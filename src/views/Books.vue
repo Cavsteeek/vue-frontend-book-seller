@@ -11,7 +11,7 @@
         <div class="flex">
 
             <div class="max-w-sm bg-gray-800 border border-gray-200 rounded-lg shadow">
-                <img class="p-8 rounded-md max-w-sm overflow-hidden object-contain h-48 w-96" src="@/assets/background.jpg"
+                <img class="p-8 rounded-md max-w-sm overflow-hidden h-48 w-48" src="@/assets/background.jpg"
                     alt="product image" />
                 <div class="px-5 pb-5">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Apple Watch Series 7</h5>
