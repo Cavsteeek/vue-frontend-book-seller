@@ -91,9 +91,11 @@ export default {
                         localStorage.setItem("access_token", response.data.token)
                         localStorage.setItem("user_role", role)
                         if (role === 'ADMIN') {
-                            this.$router.push('/add-books')
+                            const redirectPath = this.$route.query.redirect || '/add-books';
+                            this.$router.push(redirectPath)
                         } else {
-                            this.$router.push('/books')
+                            const redirectPath = this.$route.query.redirect || '/books';
+                            this.$router.push(redirectPath)
                         }
                         console.log("Token: ", response.data)
                     }
