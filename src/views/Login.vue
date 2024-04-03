@@ -88,8 +88,10 @@ export default {
                     if (response.status >= 200 && response.status < 300) {
                         alert(`Login Successful`);
                         const role = response.data.role;
+                        const username = response.data.username;
                         localStorage.setItem("access_token", response.data.token)
                         localStorage.setItem("user_role", role)
+                        localStorage.setItem("username", username)
                         if (role === 'ADMIN') {
                             const redirectPath = this.$route.query.redirect || '/add-books';
                             this.$router.push(redirectPath)

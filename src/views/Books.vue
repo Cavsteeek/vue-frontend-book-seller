@@ -9,8 +9,8 @@
     <div class="px-5 py-5" v-if="userRole === 'USER'">
 
         <div>
-            <p>Welcome {{ username }}</p>
-        </div>
+            <p class="font-serif text-lg">Welcome {{ username }}!</p>
+        </div><br>
 
         <div class="flex">
 
@@ -74,7 +74,6 @@
 import NavBar from '@/components/NavBar.vue';
 import axios from 'axios'
 import 'flowbite'
-import { jwtDecode } from "jwt-decode";
 export default {
     name: "Books",
     components: {
@@ -84,7 +83,7 @@ export default {
         return {
             books: [],
             userRole: localStorage.getItem('user_role') || '',
-            username: '',
+            username: localStorage.getItem('username'),
 
         };
     },
@@ -93,6 +92,7 @@ export default {
         async getAllBooks() {
             const token = localStorage.getItem("access_token");
             const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
+            console.log("Username: " + localStorage.getItem('username'))
             await axios.get(apiUrl, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -103,9 +103,6 @@ export default {
                         this.books = (response.data);
                         console.log(this.books);
                         console.log("Token: ", token);
-
-                        const decodedToken = jwtDecode(token);
-                        this.username = decodedToken.username;
                     } else {
                         alert(`you must be signed in to view books...confirm you are signed in`)
                         console.log(response.data)
@@ -114,7 +111,8 @@ export default {
                 .catch(error => {
                     console.error('Error Fecthing books:', error);
                 });
-        }
+        },
+
     },
 
     mounted() {
