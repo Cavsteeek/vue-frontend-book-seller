@@ -68,6 +68,8 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
+import axios from 'axios'
+import 'flowbite'
 export default {
     name: "Books",
     components: {
