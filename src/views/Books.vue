@@ -77,8 +77,9 @@ export default {
     },
     data() {
         return {
-            userRole: localStorage.getItem('user_role') || '',
             books: [],
+            userRole: localStorage.getItem('user_role') || '',
+
         };
     },
 
@@ -105,6 +106,10 @@ export default {
                     console.error('Error Fecthing books:', error);
                 });
         }
+    },
+
+    mounted() {
+        this.getAllBooks();
     }
 
 }
