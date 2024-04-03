@@ -8,6 +8,10 @@
 
     <div class="px-5 py-5" v-if="userRole === 'USER'">
 
+        <div>
+            <p>Welcome {{ username }}</p>
+        </div>
+
         <div class="flex">
 
             <div v-for="(book) in books" :key="book.id"
@@ -70,6 +74,7 @@
 import NavBar from '@/components/NavBar.vue';
 import axios from 'axios'
 import 'flowbite'
+import { jwtDecode } from "jwt-decode";
 export default {
     name: "Books",
     components: {
@@ -79,6 +84,7 @@ export default {
         return {
             books: [],
             userRole: localStorage.getItem('user_role') || '',
+            username: '',
 
         };
     },
@@ -97,6 +103,9 @@ export default {
                         this.books = (response.data);
                         console.log(this.books);
                         console.log("Token: ", token);
+
+                        const decodedToken = jwtDecode(token);
+                        this.username = decodedToken.username;
                     } else {
                         alert(`you must be signed in to view books...confirm you are signed in`)
                         console.log(response.data)
