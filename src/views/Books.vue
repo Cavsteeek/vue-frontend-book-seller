@@ -14,10 +14,10 @@
                 class="max-w-sm bg-gray-800 border border-gray-200 rounded-lg shadow">
                 <img class="p-8 rounded-t-lg bg-cover" src="@/assets/background.jpg" alt="product image" />
                 <div class="px-5 pb-5">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ book.title }}</h5>
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ book.description }}
-                    </h5>
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ book.author }}</h5>
+                    <p class="text-xl font-semibold tracking-tight text-white">{{ book.title }}</p>
+                    <p class="text-md font-semibold tracking-tight text-white">{{ book.description }}
+                    </p>
+                    <p class="text-sm font-semibold tracking-tight text-white">Author: {{ book.author }}</p>
                     <div class="flex items-center mt-2.5 mb-5">
                         <div class="flex items-center space-x-1 rtl:space-x-reverse">
                             <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
                             class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
                     </div>
                     <div class="flex items-center justify-between">
-                        <span class="text-3xl font-bold text-gray-900 dark:text-white">{{ book.price }}</span>
+                        <span class="text-3xl font-bold text-white">₦{{ book.price }}</span>
                         <a href="#"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add
                             to cart</a>
