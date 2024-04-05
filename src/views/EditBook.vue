@@ -20,18 +20,18 @@ export default {
     methods: {
         async updateBook() {
 
-            const apiUrl = `http://localhost:8080/api/v1/book/update/${this.bookId}`
+            const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
 
             const token = localStorage.getItem("access_token");
 
             const userData = {
-                title: this.title,
-                description: this.description,
-                author: this.author,
-                price: this.price,
+                title: this.title.trim() || null,
+                description: this.description.trim() || null,
+                author: this.author.trim() || null,
+                price: this.price.trim() || null,
             };
 
-            await axios.put(apiUrl, userData, {
+            await axios.patch(apiUrl, userData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -67,21 +67,21 @@ export default {
                     <div class="">
                         <!-- Book Title -->
                         <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4" type="text"
-                            id="userInput" placeholder="Book Title" v-model="title" required>
+                            id="userInput" placeholder="Book Title" v-model="title">
                     </div>
                     <br>
                     <!-- Book Author -->
                     <div class="">
                         <!-- Book Author -->
                         <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
-                            id="userInput" placeholder="Book Author" v-model="author" required>
+                            id="userInput" placeholder="Book Author" v-model="author">
                     </div>
                     <br>
                     <!-- Book Price -->
                     <div class="">
                         <!-- Book Price -->
                         <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
-                            id="userInput" placeholder="Book Price" v-model="price" required>
+                            id="userInput" placeholder="Book Price" v-model="price">
                     </div>
                     <br>
                     <!-- Book Description -->
