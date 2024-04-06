@@ -42,7 +42,12 @@
                         <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
                             id="userInput" placeholder="Book Description" v-model="description"></textarea>
                     </div>
-
+                    <br>
+                    <div class="">
+                        <!-- Book Price -->
+                        <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
+                            type="file" id="userInput" required>
+                    </div>
                     <!-- Add Book -->
                     <button
                         class="ml-30 text-md border border-white rounded-md tracking-wider px-2 py-2 bg-gray-900 mt-8 text-white font-bold"
