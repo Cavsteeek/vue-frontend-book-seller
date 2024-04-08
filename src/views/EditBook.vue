@@ -30,34 +30,22 @@ export default {
 
             const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
 
+            this.title = this.capitalize(this.title);
+            this.description = this.capitalize(this.description);
+            this.author = this.capitalize(this.author);
+
 
             const token = localStorage.getItem("access_token");
 
-            const formData = new FormData();
-            if (this.title.trim()) {
-                formData.append('title', this.capitalize(this.title.trim()));
-            } else {
-                formData.append('title', this.title);
-            }
+            const userData = {
+                title: this.title.trim() || null,
+                description: this.description.trim() || null,
+                author: this.author.trim() || null,
+                price: this.price.trim() || null,
+                file: this.price.trim() || null,
+            };
 
-            if (this.author.trim()) {
-                formData.append('author', this.capitalize(this.author.trim()));
-            } else {
-                formData.append('author', this.author);
-            }
-
-            if (this.price.trim()) {
-                formData.append('price', this.price.trim());
-            }
-
-            if (this.description.trim()) {
-                formData.append('description', this.capitalize(this.description.trim()));
-            } else {
-                formData.append('description', this.description);
-            }
-
-            formData.append('file', this.file || null);
-            await axios.patch(apiUrl, formData, {
+            await axios.patch(apiUrl, userData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
