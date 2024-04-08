@@ -72,14 +72,14 @@ export default {
             description: '',
             author: '',
             price: '',
-            image: '',
+            file: '',
             userRole: localStorage.getItem('user_role') || '',
         };
     },
 
     methods: {
         handleFileChange(event) {
-            this.image = event.target.files[0];
+            this.file = event.target.files[0];
         },
         capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -98,7 +98,7 @@ export default {
             formData.append('description', this.description);
             formData.append('author', this.author);
             formData.append('price', this.price);
-            formData.append('image', this.image);
+            formData.append('image', this.file);
 
             const token = localStorage.getItem("access_token");
 
