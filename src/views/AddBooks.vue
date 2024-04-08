@@ -46,7 +46,7 @@
                     <div class="">
                         <!-- Book Image -->
                         <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
-                            type="file" id="userInput" @change="handleFileChange``" required>
+                            type="file" id="userInput" @change="handleFileChange" required>
                     </div>
                     <!-- Add Book -->
                     <button
