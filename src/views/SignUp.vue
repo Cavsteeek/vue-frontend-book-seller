@@ -17,7 +17,7 @@
                     </svg>
                     <!-- First name -->
                     <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
-                        type="text" v-model="firstName" placeholder="Firstname" required>
+                        type="text" v-model="firstName" placeholder="Firstname" required capitalize>
 
                     &NonBreakingSpace;
                     &NonBreakingSpace;
@@ -29,7 +29,7 @@
                     </svg>
                     <!-- Last name -->
                     <input id="input" class="mt-6 font-sans px-2 h-7 text-left focus:ring-white rounded-md border-hidden"
-                        type="text" placeholder="Lastname" v-model="lastName" required>
+                        type="text" placeholder="Lastname" v-model="lastName" required capitalize>
 
                 </div>
                 <br>
