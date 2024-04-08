@@ -23,6 +23,7 @@ export default {
             this.file = event.target.files[0];
         },
         capitalize(string) {
+            if (!string) return '';
             return string.charAt(0).toUpperCase() + string.slice(1);
         },
 
@@ -30,22 +31,24 @@ export default {
 
             const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
 
-            this.title = this.capitalize(this.title);
-            this.description = this.capitalize(this.description);
-            this.author = this.capitalize(this.author);
-
-
             const token = localStorage.getItem("access_token");
 
-            const userData = {
-                title: this.title.trim() || null,
-                description: this.description.trim() || null,
-                author: this.author.trim() || null,
-                price: this.price.trim() || null,
-                file: this.price.trim() || null,
-            };
+            const formData = new FormData();
+            formData.append('title', this.title.trim() ? this.capitalize(this.title.trim()) : this.title);
+            formData.append('description', this.description.trim() ? this.capitalize(this.description.trim()) : this.description);
+            formData.append('author', this.author.trim() ? this.capitalize(this.author.trim()) : this.author);
 
-            await axios.patch(apiUrl, userData, {
+            if (this.price.trim()) {
+                formData.append('price', this.price.trim());
+            } else {
+                formData.append('price', this.price);
+            }
+
+            if (this.file) {
+                formData.append('file', this.file);
+            }
+
+            await axios.patch(apiUrl, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
