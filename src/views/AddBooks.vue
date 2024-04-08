@@ -18,14 +18,14 @@
                     <!-- Book Title -->
                     <div class="">
                         <!-- Book Title -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4" type="text"
-                            id="userInput" placeholder="Book Title" v-model="title" required>
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4 capitalize"
+                            type="text" id="userInput" placeholder="Book Title" v-model="title" required>
                     </div>
                     <br>
                     <!-- Book Author -->
                     <div class="">
                         <!-- Book Author -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize" type="text"
                             id="userInput" placeholder="Book Author" v-model="author" required>
                     </div>
                     <br>
@@ -39,12 +39,12 @@
                     <!-- Book Description -->
                     <div class="">
                         <!-- Book Description -->
-                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
-                            id="userInput" placeholder="Book Description" v-model="description"></textarea>
+                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize"
+                            type="text" id="userInput" placeholder="Book Description" v-model="description"></textarea>
                     </div>
                     <br>
                     <div class="">
-                        <!-- Book Price -->
+                        <!-- Book Image -->
                         <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
                             type="file" id="userInput" required>
                     </div>
