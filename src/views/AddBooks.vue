@@ -46,7 +46,7 @@
                     <div class="">
                         <!-- Book Image -->
                         <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
-                            type="file" id="userInput" v-model="image" required>
+                            type="file" id="userInput" @change="handleFileChange``" required>
                     </div>
                     <!-- Add Book -->
                     <button
@@ -78,21 +78,27 @@ export default {
     },
 
     methods: {
-        async addBook() {
-            const apiUrl = 'http://localhost:8080/api/v1/book';
+        handleFileChange(event) {
+            this.image = event.target.files[0];
+        },
 
-            const userData = {
-                title: this.title,
-                description: this.description,
-                author: this.author,
-                price: this.price,
-                image: this.image,
-            };
+
+        async addBook() {
+            const apiUrl = 'http://localhost:8080/api/v1/book'
+
+            const formData = new FormData();
+            formData.append('title', this.title);
+            formData.append('description', this.description);
+            formData.append('author', this.author);
+            formData.append('price', this.price);
+            formData.append('image', this.image);
 
             const token = localStorage.getItem("access_token");
-            await axios.post(apiUrl, userData, {
+
+            await axios.post(apiUrl, formData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             })
                 .then(response => {
