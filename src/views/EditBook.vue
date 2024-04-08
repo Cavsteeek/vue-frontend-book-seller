@@ -38,11 +38,21 @@ export default {
             const token = localStorage.getItem("access_token");
 
             const formData = new FormData();
-            formData.append('title', this.title.trim() || null);
-            formData.append('description', this.description.trim() || null);
-            formData.append('author', this.author.trim() || null);
-            formData.append('price', this.price.trim() || null);
-            formData.append('file', this.file.trim() || null);
+            if (this.title.trim()) {
+                formData.append('title', this.capitalize(this.title.trim()));
+            }
+            if (this.description.trim()) {
+                formData.append('description', this.capitalize(this.description.trim()));
+            }
+            if (this.author.trim()) {
+                formData.append('author', this.capitalize(this.author.trim()));
+            }
+            if (this.price.trim()) {
+                formData.append('price', this.price.trim());
+            }
+            if (this.file) {
+                formData.append('file', this.file);
+            }
 
             await axios.patch(apiUrl, formData, {
                 headers: {
