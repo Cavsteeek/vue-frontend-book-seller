@@ -46,11 +46,7 @@ export default {
                 formData.append('author', this.author);
             }
 
-            if (this.price.trim()) {
-                formData.append('price', this.price.trim());
-            } else {
-                formData.append('price', this.price);
-            }
+            formData.append('price', this.price.trim() || null);
 
             if (this.description.trim()) {
                 formData.append('description', this.capitalize(this.description.trim()));
