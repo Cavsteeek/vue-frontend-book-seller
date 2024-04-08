@@ -34,12 +34,31 @@ export default {
             const token = localStorage.getItem("access_token");
 
             const formData = new FormData();
-            formData.append('title', this.capitalize(this.title.trim() || ''));
-            formData.append('description', this.capitalize(this.description.trim() || ''));
-            formData.append('author', this.capitalize(this.author.trim() || ''));
-            formData.append('price', this.price.trim() || '');
-            formData.append('file', this.file || null);
+            if (this.title.trim()) {
+                formData.append('title', this.capitalize(this.title.trim()));
+            } else {
+                formData.append('title', this.title);
+            }
 
+            if (this.author.trim()) {
+                formData.append('author', this.capitalize(this.author.trim()));
+            } else {
+                formData.append('author', this.author);
+            }
+
+            if (this.price.trim()) {
+                formData.append('price', this.price.trim());
+            } else {
+                formData.append('price', this.price);
+            }
+
+            if (this.description.trim()) {
+                formData.append('description', this.capitalize(this.description.trim()));
+            } else {
+                formData.append('description', this.description);
+            }
+
+            formData.append('file', this.file || null);
             await axios.patch(apiUrl, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -103,7 +122,7 @@ export default {
                     <div class="">
                         <!-- Book Image -->
                         <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
-                            type="file" id="userInput" @change="handleFileChange" required>
+                            type="file" id="userInput" @change="handleFileChange">
                     </div>
 
                     <!-- Add Book -->
