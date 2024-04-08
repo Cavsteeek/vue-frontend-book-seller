@@ -46,7 +46,9 @@ export default {
                 formData.append('author', this.author);
             }
 
-            formData.append('price', this.price.trim() && !isNaN(this.price.trim()) ? this.price.trim() : null);
+            if (this.price.trim()) {
+                formData.append('price', this.price.trim());
+            }
 
             if (this.description.trim()) {
                 formData.append('description', this.capitalize(this.description.trim()));
