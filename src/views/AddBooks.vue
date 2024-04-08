@@ -46,7 +46,7 @@
                     <div class="">
                         <!-- Book Image -->
                         <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
-                            type="file" id="userInput" required>
+                            type="file" id="userInput" v-model="image" required>
                     </div>
                     <!-- Add Book -->
                     <button
@@ -72,6 +72,7 @@ export default {
             description: '',
             author: '',
             price: '',
+            image: '',
             userRole: localStorage.getItem('user_role') || '',
         };
     },
@@ -85,6 +86,7 @@ export default {
                 description: this.description,
                 author: this.author,
                 price: this.price,
+                image: this.image,
             };
 
             const token = localStorage.getItem("access_token");
