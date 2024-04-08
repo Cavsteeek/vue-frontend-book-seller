@@ -30,29 +30,15 @@ export default {
 
             const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
 
-            this.title = this.capitalize(this.title);
-            this.description = this.capitalize(this.description);
-            this.author = this.capitalize(this.author);
-
 
             const token = localStorage.getItem("access_token");
 
             const formData = new FormData();
-            if (this.title.trim()) {
-                formData.append('title', this.capitalize(this.title.trim()));
-            }
-            if (this.description.trim()) {
-                formData.append('description', this.capitalize(this.description.trim()));
-            }
-            if (this.author.trim()) {
-                formData.append('author', this.capitalize(this.author.trim()));
-            }
-            if (this.price.trim()) {
-                formData.append('price', this.price.trim());
-            }
-            if (this.file) {
-                formData.append('file', this.file);
-            }
+            formData.append('title', this.capitalize(this.title.trim() || ''));
+            formData.append('description', this.capitalize(this.description.trim() || ''));
+            formData.append('author', this.capitalize(this.author.trim() || ''));
+            formData.append('price', this.price.trim() || '');
+            formData.append('file', this.file || null);
 
             await axios.patch(apiUrl, formData, {
                 headers: {
