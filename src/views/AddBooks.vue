@@ -81,10 +81,17 @@ export default {
         handleFileChange(event) {
             this.image = event.target.files[0];
         },
+        capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        },
 
 
         async addBook() {
             const apiUrl = 'http://localhost:8080/api/v1/book'
+
+            this.title = this.capitalize(this.title);
+            this.description = this.capitalize(this.description);
+            this.author = this.capitalize(this.author);
 
             const formData = new FormData();
             formData.append('title', this.title);
