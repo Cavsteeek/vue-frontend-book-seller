@@ -98,7 +98,7 @@ export default {
             formData.append('description', this.description);
             formData.append('author', this.author);
             formData.append('price', this.price);
-            formData.append('image', this.file);
+            formData.append('file', this.file);
 
             const token = localStorage.getItem("access_token");
 
