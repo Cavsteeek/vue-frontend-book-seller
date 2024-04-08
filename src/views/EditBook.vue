@@ -34,10 +34,15 @@ export default {
             const token = localStorage.getItem("access_token");
 
             const formData = new FormData();
-            formData.append('title', this.title.trim() ? this.capitalize(this.title.trim()) : this.title);
-            formData.append('description', this.description.trim() ? this.capitalize(this.description.trim()) : this.description);
-            formData.append('author', this.author.trim() ? this.capitalize(this.author.trim()) : this.author);
-
+            if (this.title.trim()) {
+                formData.append('title', this.capitalize(this.title.trim()));
+            }
+            if (this.description.trim()) {
+                formData.append('description', this.capitalize(this.description.trim()));
+            }
+            if (this.author.trim()) {
+                formData.append('author', this.capitalize(this.author.trim()));
+            }
             if (this.price.trim()) {
                 formData.append('price', this.price.trim());
             } else {
