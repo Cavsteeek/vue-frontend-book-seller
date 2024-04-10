@@ -12,7 +12,7 @@
             BOOKS
         </h2>
 
-        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 400px;">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-800 uppercase bg-gray-200">
                     <tr>
@@ -39,7 +39,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="overflow-y-auto">
                     <tr v-for="(book, index) in books" :key="book.id" class="odd:bg-white even:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ index + 1 }}
@@ -59,7 +59,7 @@
                         <td class="px-6 py-4">
                             {{ book.imageUrl }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4" style="row-span: 2px;">
                             <button @click="updateBook(book.id)"
                                 class="font-medium text-blue-600 hover:underline">Edit</button>
                             <button @click="deleteBook(book.id)"
@@ -147,3 +147,4 @@ export default {
     }
 }
 </script>
+

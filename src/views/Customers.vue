@@ -10,7 +10,7 @@
         <h2 class="p-5 text-lg font-semibold text-center text-gray-900 bg-white">
             CUSTOMERS
         </h2>
-        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 400px;">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-800 uppercase bg-gray-200">
                     <tr>
@@ -34,7 +34,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="overflow-y-auto">
                     <tr v-for="(user, index) in customers" :key="user.id" class="odd:bg-white even:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ index + 1 }}
