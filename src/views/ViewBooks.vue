@@ -56,7 +56,7 @@
                         <td class="px-6 py-4">
                             {{ book.price }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 url-field">
                             {{ book.imageUrl }}
                         </td>
                         <td class="px-6 py-4" style="row-span: 2px;">
@@ -148,3 +148,11 @@ export default {
 }
 </script>
 
+<style>
+.url-field {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
