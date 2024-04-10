@@ -98,9 +98,9 @@ router.beforeEach((to, from, next) => {
       next({ path: '/login', query: { redirect: to.fullPath } })
     } else {
       const decodedToken = jwtDecode(token);
-      const currentTimestamp = Math.floor(Date.now() / 5000);
+      const currentTimestamp = Math.floor(Date.now() / 1000);
 
-      if (decodedToken.exp < currentTimestamp) {
+      if (decodedToken.exp * 1000 < currentTimestamp) {
         localStorage.removeItem('access_token');
         next({ path: '/login', query: { redirect: to.fullPath } });
       } else {
