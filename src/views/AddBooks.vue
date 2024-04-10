@@ -7,7 +7,7 @@
     </div>
 
     <div class="container" v-if="userRole === 'ADMIN'">
-        <div class=" mt-9" style="">
+        <div class=" mt-9 " style="">
 
             <!-- AddBook -->
             <h2 class="text-3xl font-semibold text-center mb-5 font-sans">Add Book
@@ -45,8 +45,8 @@
                     <br>
                     <div class="">
                         <!-- Book Price -->
-                        <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
-                            type="file" id="userInput" required>
+                        <input class="font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="file"
+                            id="userInput" required>
                     </div>
                     <!-- Add Book -->
                     <button
