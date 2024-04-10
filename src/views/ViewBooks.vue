@@ -32,6 +32,9 @@
                             Price
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Image URL
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Action
                         </th>
                     </tr>
@@ -52,6 +55,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ book.price }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ book.imageUrl }}
                         </td>
                         <td class="px-6 py-4">
                             <button @click="updateBook(book.id)"

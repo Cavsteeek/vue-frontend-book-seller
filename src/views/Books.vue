@@ -14,10 +14,9 @@
 
         <div class="flex">
 
-            <div v-for="(book) in books" :key="book.id"
+            <div v-for="(book) in  books " :key="book.id"
                 class="max-w-sm bg-gray-800 border border-gray-200 rounded-lg shadow">
-                <img class="p-8 rounded-t-lg bg-cover" src="@/assets/The-Talking-Tree_Front-Cover-1-247x296.jpg"
-                    alt="product image" />
+                <img class="p-8 rounded-t-lg bg-cover" :src="book.imageUrl" alt="product image" />
                 <div class="px-5 pb-5">
                     <p class="text-xl font-semibold tracking-tight text-white">{{ book.title }}</p>
                     <p class="text-md font-semibold tracking-tight text-white">{{ book.description }}

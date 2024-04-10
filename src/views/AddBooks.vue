@@ -18,14 +18,14 @@
                     <!-- Book Title -->
                     <div class="">
                         <!-- Book Title -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4" type="text"
-                            id="userInput" placeholder="Book Title" v-model="title" required>
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4 capitalize"
+                            type="text" id="userInput" placeholder="Book Title" v-model="title" required>
                     </div>
                     <br>
                     <!-- Book Author -->
                     <div class="">
                         <!-- Book Author -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize" type="text"
                             id="userInput" placeholder="Book Author" v-model="author" required>
                     </div>
                     <br>
@@ -39,14 +39,14 @@
                     <!-- Book Description -->
                     <div class="">
                         <!-- Book Description -->
-                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
-                            id="userInput" placeholder="Book Description" v-model="description"></textarea>
+                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize"
+                            type="text" id="userInput" placeholder="Book Description" v-model="description"></textarea>
                     </div>
                     <br>
                     <div class="">
-                        <!-- Book Price -->
-                        <input class="font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="file"
-                            id="userInput" required>
+                        <!-- Book Image -->
+                        <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
+                            type="file" id="userInput" @change="handleFileChange" required>
                     </div>
                     <!-- Add Book -->
                     <button
@@ -72,25 +72,40 @@ export default {
             description: '',
             author: '',
             price: '',
+            file: '',
             userRole: localStorage.getItem('user_role') || '',
         };
     },
 
     methods: {
-        async addBook() {
-            const apiUrl = 'http://localhost:8080/api/v1/book';
+        handleFileChange(event) {
+            this.file = event.target.files[0];
+        },
+        capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        },
 
-            const userData = {
-                title: this.title,
-                description: this.description,
-                author: this.author,
-                price: this.price,
-            };
+
+        async addBook() {
+            const apiUrl = 'http://localhost:8080/api/v1/book'
+
+            this.title = this.capitalize(this.title);
+            this.description = this.capitalize(this.description);
+            this.author = this.capitalize(this.author);
+
+            const formData = new FormData();
+            formData.append('title', this.title);
+            formData.append('description', this.description);
+            formData.append('author', this.author);
+            formData.append('price', this.price);
+            formData.append('file', this.file);
 
             const token = localStorage.getItem("access_token");
-            await axios.post(apiUrl, userData, {
+
+            await axios.post(apiUrl, formData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             })
                 .then(response => {

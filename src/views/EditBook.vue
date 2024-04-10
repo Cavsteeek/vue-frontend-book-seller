@@ -8,6 +8,7 @@ export default {
             author: '',
             price: '',
             description: '',
+            file: '',
             bookId: null
 
         };
@@ -18,22 +19,44 @@ export default {
     },
 
     methods: {
+        handleFileChange(event) {
+            this.file = event.target.files[0];
+        },
+        capitalize(string) {
+            if (!string) return '';
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        },
+
         async updateBook() {
 
             const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
 
             const token = localStorage.getItem("access_token");
 
-            const userData = {
-                title: this.title.trim() || null,
-                description: this.description.trim() || null,
-                author: this.author.trim() || null,
-                price: this.price.trim() || null,
-            };
+            const formData = new FormData();
+            if (this.title.trim()) {
+                formData.append('title', this.capitalize(this.title.trim()));
+            }
+            if (this.description.trim()) {
+                formData.append('description', this.capitalize(this.description.trim()));
+            }
+            if (this.author.trim()) {
+                formData.append('author', this.capitalize(this.author.trim()));
+            }
+            if (this.price.trim()) {
+                formData.append('price', this.price.trim());
+            } else {
+                formData.append('price', this.price);
+            }
 
-            await axios.patch(apiUrl, userData, {
+            if (this.file) {
+                formData.append('file', this.file);
+            }
+
+            await axios.patch(apiUrl, formData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             })
                 .then(response => {
@@ -66,29 +89,34 @@ export default {
                     <!-- Book Title -->
                     <div class="">
                         <!-- Book Title -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4" type="text"
-                            id="userInput" placeholder="Book Title" v-model="title">
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4 capitalize"
+                            type="text" id="userInput" placeholder="Book Title" v-model="title">
                     </div>
                     <br>
                     <!-- Book Author -->
                     <div class="">
                         <!-- Book Author -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize" type="text"
                             id="userInput" placeholder="Book Author" v-model="author">
                     </div>
                     <br>
                     <!-- Book Price -->
                     <div class="">
                         <!-- Book Price -->
-                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden " type="text"
                             id="userInput" placeholder="Book Price" v-model="price">
                     </div>
                     <br>
                     <!-- Book Description -->
                     <div class="">
                         <!-- Book Description -->
-                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden" type="text"
-                            id="userInput" placeholder="Book Description" v-model="description"></textarea>
+                        <textarea class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize"
+                            type="text" id="userInput" placeholder="Book Description" v-model="description"></textarea>
+                    </div>
+                    <div class="">
+                        <!-- Book Image -->
+                        <input class="border border-gray-300 font-sans px-2 py-2 text-left focus:ring-white border-hidden"
+                            type="file" id="userInput" @change="handleFileChange">
                     </div>
 
                     <!-- Add Book -->
