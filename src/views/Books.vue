@@ -6,32 +6,35 @@
         <p>You are not authorized to access this page.</p>
     </div>
 
-    <div class="px-5 py-5" v-if="userRole === 'USER'">
+    <div class="max-h-screen overflow-x-hidden overflow-y-hidden">
+        <div class="px-5 py-5" v-if="userRole === 'USER'">
 
-        <div>
-            <p class="font-serif text-lg">Welcome {{ username }}!</p>
-        </div><br>
+            <div>
+                <p class="font-serif text-lg">Welcome {{ username }}!</p>
+            </div><br>
 
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 text-center text-black">
+            <div class="max-h-screen overflow-y-visible">
+                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 text-center text-black">
 
-            <div v-for="(book) in  books " :key="book.id" class="max-w-xs rounded-lg flex flex-col">
-                <img class="object-scale-down mt-2 w-full h-48 rounded-t-lg bg-cover" :src="book.imageUrl"
-                    alt="product image" />
-                <div class="px-4 pb-2 flex flex-col flex-grow">
-                    <p class="text-lg font-semibold tracking-wider mt-2 mb-2">{{ book.title }}</p>
-                    <p class="text-sm font-semibold tracking-wider">Genre: {{ book.description }}
-                    </p>
-                    <p class="text-sm font-semibold tracking-wider text-black">Author: {{ book.author }}</p>
-                    <div class="flex flex-col items-center mt-2.5">
-                        <span class="text-xl font-bold mb-2">₦{{ book.price }}</span>
-                        <a href="#"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center">Add
-                            to cart</a>
+                    <div v-for="(book) in  books " :key="book.id" class="max-w-xs rounded-lg flex flex-col">
+                        <img class="object-scale-down mt-2 w-full h-48 rounded-t-lg bg-cover" :src="book.imageUrl"
+                            alt="product image" />
+                        <div class="px-4 pb-2 flex flex-col flex-grow">
+                            <p class="text-lg font-semibold tracking-wider mt-2 mb-2">{{ book.title }}</p>
+                            <p class="text-sm font-semibold tracking-wider">Genre: {{ book.description }}
+                            </p>
+                            <p class="text-sm font-semibold tracking-wider text-black">Author: {{ book.author }}</p>
+                            <div class="flex flex-col items-center mt-2.5">
+                                <span class="text-xl font-bold mb-2">₦{{ book.price }}</span>
+                                <a href="#"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-1.5 text-center">Add
+                                    to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
