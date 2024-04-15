@@ -1,19 +1,20 @@
 <template>
     <NavBar v-if="userRole === 'USER'" />
-    <router-view v-if="userRole === 'USER'"></router-view>
+    <div class="max-h-screen overflow-x-hidden overscroll-contain">
+        <router-view v-if="userRole === 'USER'"></router-view>
 
-    <div v-if="userRole !== 'USER'" class="text-red-500 text-center text-3xl mt-20">
-        <p>You are not authorized to access this page.</p>
-    </div>
+        <div v-if="userRole !== 'USER'" class="text-red-500 text-center text-3xl mt-20">
+            <p>You are not authorized to access this page.</p>
+        </div>
 
-    <div class="max-h-screen overflow-x-hidden overflow-y-hidden">
+
         <div class="px-5 py-5" v-if="userRole === 'USER'">
 
             <div>
                 <p class="font-serif text-lg">Welcome {{ username }}!</p>
             </div><br>
 
-            <div class="max-h-screen overflow-y-visible">
+            <div class="max-h-screen overflow-visible">
                 <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 text-center text-black">
 
                     <div v-for="(book) in  books " :key="book.id" class="max-w-xs rounded-lg flex flex-col">
