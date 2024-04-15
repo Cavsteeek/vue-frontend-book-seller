@@ -1,6 +1,6 @@
 <template>
-    <NavBar v-if="userRole === 'USER'" />
     <div class="max-h-screen overflow-x-hidden overscroll-contain">
+        <NavBar v-if="userRole === 'USER'" />
         <router-view v-if="userRole === 'USER'"></router-view>
 
         <div v-if="userRole !== 'USER'" class="text-red-500 text-center text-3xl mt-20">
@@ -14,7 +14,7 @@
                 <p class="font-serif text-lg">Welcome {{ username }}!</p>
             </div><br>
 
-            <div class="max-h-screen overflow-visible">
+            <div class="max-h-screen">
                 <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 text-center text-black">
 
                     <div v-for="(book) in  books " :key="book.id" class="max-w-xs rounded-lg flex flex-col">
