@@ -29,7 +29,8 @@ export default {
 
         async updateBook() {
 
-            const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}`
+            // const apiUrl = `http://localhost:8080/api/v1/book/update-book/${this.bookId}` //localhost
+            const apiUrl = `https://book-seller-production.up.railway.app/api/v1/book/update-book/${this.bookId}`
 
             const token = localStorage.getItem("access_token");
 

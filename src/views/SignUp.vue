@@ -111,7 +111,8 @@ export default {
     },
     methods: {
         async signUp() {
-            const apiUrl = 'http://localhost:8080/api/v1/auth/sign-up';
+            // const apiUrl = 'http://localhost:8080/api/v1/auth/sign-up';
+            const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/auth/sign-up';
 
             const userData = {
                 firstName: this.firstName,
