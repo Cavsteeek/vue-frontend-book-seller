@@ -12,7 +12,7 @@
             BOOKS
         </h2>
 
-        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 450px;">
+        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 400px;">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-800 uppercase bg-gray-200">
                     <tr>
