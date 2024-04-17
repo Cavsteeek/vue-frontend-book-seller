@@ -1,8 +1,8 @@
 <template>
   <HomeNavbar />
   <router-view></router-view>
-  <div class="home">
-    <h2 class="text-2xl font-semibold m-10">Cavsteek's</h2>
+  <div class="home container text-center">
+    <h2 class="text-2xl font-semibold m-10 ">Cavsteek's</h2>
   </div>
   <div class="space-x-2">
     <a href="/login">Login</a>
