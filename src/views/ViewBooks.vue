@@ -44,13 +44,13 @@
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ index + 1 }}
                         </th>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap url-field">
                             {{ book.title }}
                         </td>
                         <td class="px-6 py-4">
                             {{ book.description }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 ">
                             {{ book.author }}
                         </td>
                         <td class="px-6 py-4">
