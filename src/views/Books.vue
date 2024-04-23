@@ -93,8 +93,7 @@ export default {
 .url-field {
     max-width: 200px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
     white-space: nowrap;
-    text-align: center;
 }
 </style>
