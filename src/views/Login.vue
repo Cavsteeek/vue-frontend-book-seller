@@ -76,8 +76,8 @@ export default {
     },
     methods: {
         async signIn() {
-            // const apiUrl = 'http://localhost:8080/api/v1/auth/sign-in';
-            const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/auth/sign-in';
+            const apiUrl = 'http://localhost:8080/api/v1/auth/sign-in';
+            // const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/auth/sign-in';
 
             const userData = {
                 username: this.username,

@@ -57,8 +57,8 @@ export default {
     methods: {
         async getAllBooks() {
             const token = localStorage.getItem("access_token");
-            // const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
-            const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/book/view-all';
+            const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
+            // const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/book/view-all';
             console.log("Username: " + localStorage.getItem('username'))
             await axios.get(apiUrl, {
                 headers: {

@@ -87,8 +87,8 @@ export default {
 
 
         async addBook() {
-            // const apiUrl = 'http://localhost:8080/api/v1/book'
-            const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/book'
+            const apiUrl = 'http://localhost:8080/api/v1/book'
+            // const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/book'
 
 
             this.title = this.capitalize(this.title);
