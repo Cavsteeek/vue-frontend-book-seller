@@ -7,10 +7,10 @@
     </div>
 
     <div v-if="userRole === 'ADMIN'">
-        <h2 class="p-5 ml-40 mb-3 font-raleway text-xl font-semibold text-center text-gray-900 bg-white">
+        <h2 class="p-5 ml-40 mb-2 font-raleway text-xl font-semibold text-center text-gray-900 bg-white">
             CUSTOMERS
         </h2>
-        <div class="relative w-screen overflow-x-auto shadow-md sm:rounded-lg" style="max-height: 400px;">
+        <div class="relative w-screen overflow-x-auto shadow-md rounded-xl sm:rounded-lg" style="max-height: 400px;">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-800 uppercase bg-gray-200">
                     <tr>
