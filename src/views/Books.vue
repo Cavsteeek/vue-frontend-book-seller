@@ -6,26 +6,24 @@
         <p>You are not authorized to access this page.</p>
     </div>
 
-
     <div class="px-5 py-5" v-if="userRole === 'USER'">
-
         <div>
             <p class="font-serif text-lg">Welcome {{ username }}!</p>
         </div><br>
 
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 text-center text-black">
-
-            <div v-for="(book) in  books " :key="book.id" class="max-w-xs rounded-lg flex flex-col">
-                <img class="object-scale-down mt-2 w-full h-48 rounded-t-lg bg-cover" :src="book.imageUrl"
+            <div v-for="(book, index) in books" :key="index"
+                class="max-w-xs rounded-lg overflow-hidden flex flex-col items-center">
+                <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down bg-cover" :src="book.imageUrl"
                     alt="product image" />
-                <div class="px-4 pb-2 flex flex-col flex-grow text-center">
-                    <p class="text-lg font-semibold tracking-wider mt-2 mb-2" :title="book.title">{{
-                        book.title }}
+                <div class="p-4 flex flex-col items-center flex-grow">
+                    <p class="text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
+                        :title="book.title">
+                        {{ book.title }}
                     </p>
                     <p class="text-sm font-semibold tracking-wider" :title="book.description">Genre: {{ book.description }}
                     </p>
-                    <p class="text-sm font-semibold tracking-wider text-black " :title="book.author">Author: {{ book.author
-                    }}</p>
+                    <p class="text-sm font-semibold tracking-wider" :title="book.author">Author: {{ book.author }}</p>
                     <div class="flex flex-col items-center mt-2.5">
                         <span class="text-xl font-bold mb-2">₦{{ book.price }}</span>
                         <a href="#"
@@ -35,9 +33,9 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
+
 
 <script>
 import NavBar from '@/components/NavBar.vue';
@@ -95,8 +93,8 @@ export default {
 <style>
 .url-field {
     max-width: 200px;
-    text-align: center;
+    overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    text-align: center;
 }
 </style>
