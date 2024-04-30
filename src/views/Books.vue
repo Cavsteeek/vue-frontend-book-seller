@@ -53,7 +53,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
             <div v-for="(book, index) in books" :key="index"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
-                <img class="mt-2 w-full h-48 rounded-t-lg object-cover" :src="book.imageUrl" alt="product image" />
+                <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="book.imageUrl" alt="product image" />
                 <div class="p-4 flex flex-col items-center flex-grow">
                     <p class="text-sm sm:text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
                         :title="book.title">
