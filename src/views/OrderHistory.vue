@@ -9,7 +9,7 @@
     <div v-if="userRole === 'ADMIN'">
 
         <h2 class="p-5 text-xl ml-40 mb-2 font-raleway font-semibold text-center text-gray-900 bg-white">
-            ORDER
+            ORDER HISTORY
         </h2>
 
         <div class="relative w-screen overflow-x-auto shadow-md rounded-xl sm:rounded-lg" style="max-height: 400px;">
@@ -20,7 +20,7 @@
                             ID
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Purchase Time
+                            Book Title
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Quantity
@@ -29,10 +29,10 @@
                             Price
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Book ID
+                            Username
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            User ID
+                            Purchase Time
                         </th>
                     </tr>
                 </thead>
@@ -42,20 +42,20 @@
                             {{ index + 1 }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ order.purchaseTime }}
-                        </td>
-                        <td class="px-6 py-4 ">
-                            {{ order.price }}
+                            {{ order.book.title }}
                         </td>
                         <td class="px-6 py-4 ">
                             {{ order.quantity }}
                         </td>
+                        <td class="px-6 py-4 ">
+                            {{ order.price }}
+                        </td>
 
                         <td class="px-6 py-4">
-                            {{ order.bookId }}
+                            {{ order.user.username }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ order.userId }}
+                            {{ order.purchaseTime }}
                         </td>
                     </tr>
                 </tbody>
