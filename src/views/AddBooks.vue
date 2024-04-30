@@ -7,12 +7,13 @@
     </div>
 
     <div class="container" v-if="userRole === 'ADMIN'">
-        <div class=" mt-9 " style="">
+        <div class=" mt-3 " style="">
 
             <!-- AddBook -->
-            <h2 class="text-3xl font-semibold text-center mb-5 font-sans">Add Book
+            <h2 class="text-xl font-semibold text-center ml-40 mb-3 font-raleway">New Book
             </h2>
-            <div class="text-center">
+            <!-- <hr class="w-screen border border-gray-200"> -->
+            <div class="text-center ml-40">
                 <form @submit.prevent="addBook" class="">
 
                     <!-- Book Title -->

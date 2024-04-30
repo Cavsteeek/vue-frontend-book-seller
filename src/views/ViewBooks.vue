@@ -8,7 +8,7 @@
 
     <div v-if="userRole === 'ADMIN'">
 
-        <h2 class="p-5 text-lg font-semibold text-center text-gray-900 bg-white">
+        <h2 class="p-5 text-xl ml-40 mb-3 font-raleway font-semibold text-center text-gray-900 bg-white">
             BOOKS
         </h2>
 
@@ -44,7 +44,8 @@
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ index + 1 }}
                         </th>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap url-field">
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 text-left whitespace-nowrap url-field"
+                            :title="book.title">
                             {{ book.title }}
                         </td>
                         <td class="px-6 py-4">
@@ -153,9 +154,7 @@ export default {
 
 <style>
 .url-field {
-    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 </style>

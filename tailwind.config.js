@@ -321,6 +321,8 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      'roboto': ['Roboto', 'sans-serif'],
+      'raleway': ["Raleway", 'sans-serif'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
