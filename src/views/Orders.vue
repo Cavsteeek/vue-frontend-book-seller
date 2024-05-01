@@ -12,7 +12,7 @@
         </div><br>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
-            <div v-for="(book, index) in books" :key="index"
+            <div v-for="(order, index) in books" :key="index"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
                 <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="book.imageUrl" alt="product image" />
                 <div class="p-4 flex flex-col items-center flex-grow">
@@ -39,6 +39,9 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
+import axios from 'axios';
+import 'flowbite'
+
 export default {
     name: "Orders",
     components: {
@@ -46,8 +49,40 @@ export default {
     },
     data() {
         return {
+            orders: [],
             userRole: localStorage.getItem('user_role') || '',
         }
+    },
+
+    methods: {
+        async getAllOrders() {
+            const token = localStorage.getItem("access_token");
+            const apiUrl = 'http://localhost:8080/api/v1/purchases/all-purchases';
+
+            await axios.get(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        this.orderHistory = response.data;
+                        console.log(this.orders);
+                        console.log("Token: ", token);
+                    } else {
+                        alert(`you must be signed in to view this...confirm you are signed in`)
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error Fecthing Orders:', error);
+                });
+        },
+    },
+
+    mounted() {
+        this.getAllOrders();
     }
+
 }
 </script>
