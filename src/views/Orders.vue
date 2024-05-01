@@ -9,30 +9,31 @@
     <div class="px-4 sm:px-5 py-5" v-if="userRole === 'USER'">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
-            <div v-for="(order, index) in orders" :key="index"
+            <div v-for="(filteredOrder, index) in filteredOrders" :key="filteredOrder.id"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
-                <div v-if="order.user.username === username">
-                    <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="order.book.imageUrl"
-                        alt="product image" />
-                    <div class="p-4 flex flex-col items-center flex-grow">
-                        <p class="text-sm sm:text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
-                            :title="order.book.title">
-                            {{ order.book.title }}
-                        </p>
-                        <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="order.book.description">Genre: {{
-                            order.book.description }}
-                        </p>
-                        <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="order.book.author">Author: {{
-                            order.book.author
-                        }}</p>
-                        <p class="text-xs sm:text-sm font-semibold tracking-wider">Quantity: {{ order.quantity }}</p>
-                        <div class="flex flex-col items-center mt-2.5">
-                            <span class="text-lg sm:text-xl font-bold mb-2">₦{{ order.book.price }}</span>
-                            <p
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">
-                                Total: {{ order.price }}</p>
-                        </div>
+                <!-- <div v-if="order.user.username === username"> -->
+                <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="filteredOrder.book.imageUrl"
+                    alt="product image" />
+                <div class="p-4 flex flex-col items-center flex-grow">
+                    <p class="text-sm sm:text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
+                        :title="filteredOrder.book.title">
+                        {{ filteredOrder.book.title }}
+                    </p>
+                    <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="filteredOrder.book.description">
+                        Genre: {{
+                            filteredOrder.book.description }}
+                    </p>
+                    <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="filteredOrder.book.author">Author: {{
+                        filteredOrder.book.author
+                    }}</p>
+                    <p class="text-xs sm:text-sm font-semibold tracking-wider">Quantity: {{ filteredOrder.quantity }}</p>
+                    <div class="flex flex-col items-center mt-2.5">
+                        <span class="text-lg sm:text-xl font-bold mb-2">₦{{ filteredOrder.book.price }}</span>
+                        <p
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">
+                            Total: {{ filteredOrder.price }}</p>
                     </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -54,6 +55,13 @@ export default {
             orders: [],
             userRole: localStorage.getItem('user_role') || '',
             username: localStorage.getItem('username'),
+        }
+    },
+
+    computed: {
+        filteredOrders() {
+            // Filter and rearrange orders based on user ownership
+            return this.orders.filter(order => order.user.username === this.username);
         }
     },
 
