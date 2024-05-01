@@ -7,29 +7,31 @@
     </div>
 
     <div class="px-4 sm:px-5 py-5" v-if="userRole === 'USER'">
-        <div>
-            <p class="text-base sm:text-lg font-serif">Welcome {{ username }}!</p>
-        </div><br>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
-            <div v-for="(order, index) in books" :key="index"
+            <div v-for="(order, index) in orders" :key="index"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
-                <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="book.imageUrl" alt="product image" />
-                <div class="p-4 flex flex-col items-center flex-grow">
-                    <p class="text-sm sm:text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
-                        :title="book.title">
-                        {{ book.title }}
-                    </p>
-                    <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="book.description">Genre: {{
-                        book.description }}
-                    </p>
-                    <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="book.author">Author: {{ book.author
-                    }}</p>
-                    <div class="flex flex-col items-center mt-2.5">
-                        <span class="text-lg sm:text-xl font-bold mb-2">₦{{ book.price }}</span>
-                        <a href="#"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">Add
-                            to cart</a>
+                <div v-if="order.user.username === username">
+                    <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="order.book.imageUrl"
+                        alt="product image" />
+                    <div class="p-4 flex flex-col items-center flex-grow">
+                        <p class="text-sm sm:text-lg font-semibold tracking-wider mt-2 mb-2 whitespace-nowrap url-field"
+                            :title="order.book.title">
+                            {{ order.book.title }}
+                        </p>
+                        <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="order.book.description">Genre: {{
+                            order.book.description }}
+                        </p>
+                        <p class="text-xs sm:text-sm font-semibold tracking-wider" :title="order.book.author">Author: {{
+                            order.book.author
+                        }}</p>
+                        <p class="text-xs sm:text-sm font-semibold tracking-wider">Quantity: {{ order.quantity }}</p>
+                        <div class="flex flex-col items-center mt-2.5">
+                            <span class="text-lg sm:text-xl font-bold mb-2">₦{{ order.book.price }}</span>
+                            <p
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">
+                                Total: {{ order.price }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +53,7 @@ export default {
         return {
             orders: [],
             userRole: localStorage.getItem('user_role') || '',
+            username: localStorage.getItem('username'),
         }
     },
 
@@ -59,6 +62,8 @@ export default {
             const token = localStorage.getItem("access_token");
             const apiUrl = 'http://localhost:8080/api/v1/purchases/all-purchases';
 
+            console.log("Username: " + localStorage.getItem('username'))
+
             await axios.get(apiUrl, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -66,7 +71,7 @@ export default {
             })
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
-                        this.orderHistory = response.data;
+                        this.orders = response.data;
                         console.log(this.orders);
                         console.log("Token: ", token);
                     } else {
@@ -86,3 +91,12 @@ export default {
 
 }
 </script>
+
+<style >
+.url-field {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+</style>
