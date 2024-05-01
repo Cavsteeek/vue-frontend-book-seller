@@ -11,7 +11,6 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
             <div v-for="(filteredOrder, index) in filteredOrders" :key="filteredOrder.id"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
-                <!-- <div v-if="order.user.username === username"> -->
                 <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="filteredOrder.book.imageUrl"
                     alt="product image" />
                 <div class="p-4 flex flex-col items-center flex-grow">
@@ -30,14 +29,19 @@
                     <div class="flex flex-col items-center mt-2.5">
                         <span class="text-lg sm:text-xl font-bold mb-2">₦{{ filteredOrder.book.price }}</span>
                         <p
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">
+                            class="lg:text-lg bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-md sm:text-sm px-3 py-1.5 text-center">
                             Total: {{ filteredOrder.price }}</p>
                     </div>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
     </div>
+    <footer class="text-center font-raleway text-xl font-bold m-auto items-center rounded-md px-3 py-1.5">
+        <button
+            class="bg-gray-800 hover:bg-blue-700 text-white rounded-md px-4 py-2 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-blue-500">
+            CHECKOUT
+        </button>
+    </footer>
 </template>
 
 <script>
@@ -100,7 +104,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 .url-field {
     max-width: 200px;
     overflow: hidden;
