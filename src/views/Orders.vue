@@ -7,9 +7,12 @@
     </div>
 
     <div class="px-4 sm:px-5 py-5" v-if="userRole === 'USER'">
+        <div>
+            <p class="text-base text-center sm:text-lg font-serif">Cart Total: ₦{{ cartTotal }}</p>
+        </div><br>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 text-center text-black">
-            <div v-for="(filteredOrder, index) in filteredOrders" :key="filteredOrder.id"
+            <div v-for="(filteredOrder) in filteredOrders" :key="filteredOrder.id"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
                 <img class="mt-2 w-full h-48 rounded-t-lg object-scale-down" :src="filteredOrder.book.imageUrl"
                     alt="product image" />
@@ -29,7 +32,7 @@
                     <div class="flex flex-col items-center mt-2.5">
                         <span class="text-lg sm:text-xl font-bold mb-2">₦{{ filteredOrder.book.price }}</span>
                         <p
-                            class="lg:text-lg bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-md sm:text-sm px-3 py-1.5 text-center">
+                            class="lg:text-lg bg-blue-700 hover:bg-gray-800 text-white font-medium rounded-md sm:text-sm px-3 py-1.5 text-center">
                             Total: {{ filteredOrder.price }}</p>
                     </div>
                 </div>
@@ -64,8 +67,11 @@ export default {
 
     computed: {
         filteredOrders() {
-            // Filter and rearrange orders based on user ownership
             return this.orders.filter(order => order.user.username === this.username);
+        },
+
+        cartTotal() {
+            return this.filteredOrders.reduce((total, order) => total + order.price, 0);
         }
     },
 

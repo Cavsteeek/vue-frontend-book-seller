@@ -67,7 +67,7 @@
                     <div class="flex flex-col items-center mt-2.5">
                         <span class="text-lg sm:text-xl font-bold mb-2">₦{{ book.price }}</span>
                         <button @click="addToCart(book.id)"
-                            class="text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-blue-500 bg-blue-700 hover:bg-blue-800 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">Add
+                            class="text-white transition-colors duration-200 ease-in-out bg-blue-700 hover:bg-gray-800 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">Add
                             to cart</button>
                     </div>
                 </div>
