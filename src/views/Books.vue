@@ -104,6 +104,7 @@ export default {
             const apiUrl = 'http://localhost:8080/api/v1/book/view-all';
             // const apiUrl = 'https://book-seller-production.up.railway.app/api/v1/book/view-all';
             console.log("Username: " + localStorage.getItem('username'))
+
             await axios.get(apiUrl, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -124,38 +125,48 @@ export default {
                 });
         },
 
-    },
+        async addToCart(bookId) {
+            const userId = localStorage.getItem("userId");
+            const token = localStorage.getItem("access_token");
 
-    async addToCart(bookId) {
-        const apiUrl = `http://localhost:8080api/v1/purchases/create/${this.userId}/${bookId}` //localhost
+            // Log the userId to ensure it's being set correctly
+            console.log('User ID:', userId);
 
-        const token = localStorage.getItem("access_token");
-
-        await axios.post(apiUrl, {}, {
-            headers: {
-                'Authorization': `Bearer ${token}`
+            // Check if userId is available
+            if (!userId) {
+                console.error('User ID is not available');
+                return;
             }
-        })
-            .then(response => {
-                if (response.status >= 200 && response.status < 300) {
-                    alert('Added To Cart')
-                    this.getAllBooks();
-                } else {
-                    console.log(response.data)
+            const apiUrl = `http://localhost:8080/api/v1/purchases/create/${userId}/${bookId}` //localhost
+
+            const quantity = prompt("Quantity:");
+            if (quantity === null || isNaN(quantity) || quantity <= 0) {
+                return;
+            }
+
+            const requestData = {
+                quantity: parseInt(quantity)
+            };
+            await axios.post(apiUrl, requestData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('Added To Cart')
+                    } else {
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        },
     },
 
     mounted() {
         this.getAllBooks();
-        const token = localStorage.getItem("access_token");
-        if (token) {
-            const decoded = jwtDecode(token);
-            this.userId = decoded.userId;
-        }
     }
 
 }
