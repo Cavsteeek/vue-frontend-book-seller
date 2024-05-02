@@ -66,7 +66,7 @@
                     }}</p>
                     <div class="flex flex-col items-center mt-2.5">
                         <span class="text-lg sm:text-xl font-bold mb-2">₦{{ book.price }}</span>
-                        <button
+                        <button @click="addToCart(book.id)"
                             class="text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-blue-500 bg-blue-700 hover:bg-blue-800 font-medium rounded-md text-xs sm:text-sm px-3 py-1.5 text-center">Add
                             to cart</button>
                     </div>
@@ -81,6 +81,8 @@
 import NavBar from '@/components/NavBar.vue';
 import axios from 'axios'
 import 'flowbite'
+import { jwtDecode } from "jwt-decode";
+
 export default {
     name: "Books",
     components: {
@@ -91,6 +93,7 @@ export default {
             books: [],
             userRole: localStorage.getItem('user_role') || '',
             username: localStorage.getItem('username'),
+            userId: ''
 
         };
     },
@@ -123,12 +126,12 @@ export default {
 
     },
 
-    async addToCart(userId, bookId) {
-        const apiUrl = `http://localhost:8080api/v1/purchases/create/${userId}/${bookId}` //localhost
+    async addToCart(bookId) {
+        const apiUrl = `http://localhost:8080api/v1/purchases/create/${this.userId}/${bookId}` //localhost
 
         const token = localStorage.getItem("access_token");
 
-        await axios.post(apiUrl, {
+        await axios.post(apiUrl, {}, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -136,7 +139,6 @@ export default {
             .then(response => {
                 if (response.status >= 200 && response.status < 300) {
                     alert('Added To Cart')
-                    console.log("Token: ", token);
                     this.getAllBooks();
                 } else {
                     console.log(response.data)
@@ -149,6 +151,11 @@ export default {
 
     mounted() {
         this.getAllBooks();
+        const token = localStorage.getItem("access_token");
+        if (token) {
+            const decoded = jwtDecode(token);
+            this.userId = decoded.userId;
+        }
     }
 
 }
