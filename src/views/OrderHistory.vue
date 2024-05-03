@@ -22,7 +22,7 @@
                         <th scope="col" class="px-6 py-3">
                             Book Title
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 text-center">
                             Quantity
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -34,6 +34,9 @@
                         <th scope="col" class="px-6 py-3">
                             Purchase Time
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="overflow-y-auto">
@@ -44,7 +47,7 @@
                         <td class="px-6 py-4">
                             {{ order.book.title }}
                         </td>
-                        <td class="px-6 py-4 ">
+                        <td class="px-6 py-4 text-center">
                             {{ order.quantity }}
                         </td>
                         <td class="px-6 py-4 ">
@@ -55,6 +58,10 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ order.purchaseTime }}
+                        </td>
+                        <td class="px-6 py-4" style="row-span: 2px;">
+                            <button @click="deleteOrder(order.id)"
+                                class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
                         </td>
                     </tr>
                 </tbody>
@@ -101,6 +108,31 @@ export default {
                 })
                 .catch(error => {
                     console.error('Error Fecthing Order History:', error);
+                });
+        },
+
+        async deleteOrder(orderId) {
+            const apiUrl = `http://localhost:8080/api/v1/purchases/delete-order/${orderId}` //localhost
+
+            const token = localStorage.getItem("access_token");
+
+            await axios.delete(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('Deleted Successfully')
+                        console.log("Token: ", token);
+                        this.orderHistory = this.orderHistory.filter(order => order.id !== orderId);
+                        this.getOrderHistory();
+                    } else {
+                        console.log(response.data)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error Deleting:', error);
                 });
         },
 

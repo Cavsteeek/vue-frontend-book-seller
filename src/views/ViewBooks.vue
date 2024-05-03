@@ -57,7 +57,7 @@
                         <td class="px-6 py-4">
                             {{ book.price }}
                         </td>
-                        <td class="px-6 py-4 url-field">
+                        <td class="px-6 py-4 url-field" :title="book.imageUrl">
                             {{ book.imageUrl }}
                         </td>
                         <td class="px-6 py-4" style="row-span: 2px;">
@@ -154,6 +154,7 @@ export default {
 
 <style>
 .url-field {
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
