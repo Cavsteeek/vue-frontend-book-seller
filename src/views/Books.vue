@@ -189,11 +189,12 @@ export default {
 }
 </script>
 
-<style>
+<!-- Config for bigger UI -->
+<!-- <style scoped>
 .url-field {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
 }
-</style>
+</style> -->
