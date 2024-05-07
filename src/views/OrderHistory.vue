@@ -29,6 +29,9 @@
                             Price
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Total
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Username
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -49,6 +52,9 @@
                         </td>
                         <td class="px-6 py-4 text-center">
                             {{ order.quantity }}
+                        </td>
+                        <td class="px-6 py-4 ">
+                            {{ order.book.price }}
                         </td>
                         <td class="px-6 py-4 ">
                             {{ order.price }}
