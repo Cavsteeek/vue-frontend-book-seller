@@ -107,10 +107,15 @@ export default {
                     }
                 })
                 .catch(error => {
-                    if (error.response.status === 403) {
-                        alert(`Try Again, Unauthorized`);
+                    if (error.response) {
+                        if (error.response.status === 403) {
+                            alert('Try Again, Unauthorized');
+                        }
+                        console.error('Error signing in:', error);
+                    } else {
+                        console.error('Network error or no response:', error);
+                        alert('Network error or server did not respond');
                     }
-                    console.error('Error signing in:', error);
                 });
         },
     },
