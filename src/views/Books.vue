@@ -56,14 +56,15 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3 text-center text-black">
             <div v-for="(book, index) in books" :key="index"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
+                <!-- Hover over picture for description -->
                 <img class="mt-2 w-full h-36 rounded-t-lg object-scale-down" :src="book.imageUrl" alt="product image" />
                 <div class="p-3 flex flex-col items-center flex-grow">
                     <p class="text-xs sm:text-sm font-semibold tracking-wider mt-1 mb-1 whitespace-nowrap url-field"
                         :title="book.title">
                         {{ book.title }}
                     </p>
-                    <p class="text-xxs sm:text-xs font-semibold tracking-wider" :title="book.description">
-                        Genre: {{ book.description }}
+                    <p class="text-xxs sm:text-xs font-semibold tracking-wider" :title="book.genre">
+                        Genre: {{ book.genre }}
                     </p>
                     <p class="text-xxs sm:text-xs font-semibold tracking-wider" :title="book.author">
                         Author: {{ book.author }}

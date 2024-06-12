@@ -1,5 +1,5 @@
 <template>
-    <div id="body" class="bg-slate-100 flex w-screen h-screen">
+    <div id="body" class="bg-slate-400 flex w-screen h-screen">
         <div class="border border-slate-200 pt-10 pb-2 py-4 px-20 m-auto shadow-xl rounded-2xl bg-white"
             style="margin-top: 60px;">
 
@@ -45,17 +45,25 @@
                 </button> <br><br>
             </form><br>
 
-            <!-- Forgot Password -->
-            <button class="font-semibold font-sans ml-36">
-                <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
+            <div class="mb-2">
+                <!-- Forgot Password -->
+                <button class="font-semibold font-sans ml-36">
+                    <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
                 hover:text-white">Forgot
-                    Password?</router-link></button> <br><br>
+                        Password?</router-link></button> <br><br>
 
-            <!-- Sign up -->
-            <button class="font-semibold font-sans ml-20">Don't have an
-                account? <router-link to="/signup" class="text-gray-900 font-3xl font-bold mt-10">Sign
-                    Up</router-link></button>
-            <br><br>
+                <!-- Sign up -->
+                <button class="font-semibold font-sans ml-20">Don't have an
+                    account? <router-link to="/signup" class="text-gray-900 font-3xl font-bold mt-10">Sign
+                        Up</router-link></button>
+                <br><br>
+
+                <!-- Social Media Login -->
+                <button class="font-semibold font-sans justify-center border border-black py-2 px-2 text-center">Login
+                    with
+                    google</button>
+                <br><br>
+            </div>
 
         </div>
     </div>

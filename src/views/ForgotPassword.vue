@@ -8,12 +8,12 @@
                 </h2>
 
                 <!-- Welcome message -->
-                <h2 class="text-md font-semibold font-sans text-center mt-2 ">Confirmation will be sent to your email
+                <h2 class="text-md font-semibold font-sans text-center mt-2 ">
                 </h2>
                 <form>
 
                     <!-- Email -->
-                    <div class="flex mt-2">
+                    <div class="flex mt-[45px]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="w-5 h-5 mt-1">
                             <path
@@ -23,7 +23,7 @@
                         </svg>
                         <!-- Email -->
                         <input class=" font-sans px-2 h-7 text-left text-wider focus:ring-white border-hidden" type="email"
-                            id="input" placeholder="Email" v-model="email" required>
+                            id="input" placeholder="Username" v-model="email" required>
                     </div>
                     <br>
 
@@ -57,11 +57,26 @@
 </template>
 
 <script>
+import axios from 'axios'
+import 'flowbite'
+
 export default {
     name: "ForgotPassword",
+    data() {
+        return {
+            email: localStorage.setItem('email'),
+            password: '',
+            userId: ''
+        }
+    },
+
     methods: {
-        home() {
-            this.$router.push({ path: '/' });
+        async resetPassword() {
+            const apiUrl = 'http://localhost:8080/api/v1/user/generate-otp';
+
+            const userData = {
+                password: this.password
+            }
         }
     }
 }

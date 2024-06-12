@@ -7,6 +7,7 @@ export default {
             title: '',
             author: '',
             price: '',
+            genre: '',
             description: '',
             file: '',
             bookId: null
@@ -40,6 +41,9 @@ export default {
             }
             if (this.description.trim()) {
                 formData.append('description', this.capitalize(this.description.trim()));
+            }
+            if (this.genre.trim()) {
+                formData.append('genre', this.capitalize(this.genre.trim()));
             }
             if (this.author.trim()) {
                 formData.append('author', this.capitalize(this.author.trim()));
@@ -106,6 +110,12 @@ export default {
                         <!-- Book Price -->
                         <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden " type="text"
                             id="userInput" placeholder="Book Price" v-model="price">
+                    </div>
+                    <br>
+                    <div class="">
+                        <!-- Book Genre -->
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize" type="text"
+                            id="userInput" placeholder="Book Genre" v-model="genre">
                     </div>
                     <br>
                     <!-- Book Description -->

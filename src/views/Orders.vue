@@ -65,7 +65,8 @@
     <router-view v-if="userRole === 'USER'"></router-view>
 
     <div v-if="userRole !== 'USER'" class="text-red-500 text-center text-xl mt-10">
-        <p>You are not authorized to access this page.</p>
+        <p>You are not authorized to access this page. <RouterLink to="/login" class="text-black">Login</RouterLink>
+        </p>
     </div>
 
     <div class="px-4 sm:px-6 py-4" v-if="userRole === 'USER'">
@@ -107,13 +108,13 @@
                 </div>
             </div>
         </div>
+        <footer class="text-center font-raleway text-lg font-bold mx-auto rounded-md px-3 py-1">
+            <button
+                class="bg-gray-800 hover:bg-blue-700 text-white rounded-md px-3 py-2 transition-colors duration-200 ease-in-out">
+                CHECKOUT
+            </button>
+        </footer>
     </div>
-    <footer class="text-center font-raleway text-lg font-bold mx-auto rounded-md px-3 py-1">
-        <button
-            class="bg-gray-800 hover:bg-blue-700 text-white rounded-md px-3 py-2 transition-colors duration-200 ease-in-out">
-            CHECKOUT
-        </button>
-    </footer>
 </template>
 
 <style scoped>

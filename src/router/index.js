@@ -11,6 +11,7 @@ import OrderHistory from "../views/OrderHistory"
 import Customers from "../views/Customers"
 import ViewBooks from '@/views/ViewBooks'
 import EditBook from '@/views/EditBook'
+import BookDetails from '@/views/BookDetails'
 import { jwtDecode } from "jwt-decode";
 
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
     path: "/forgotpassword",
     name: "ForgotPassword",
     component: ForgotPassword,
+  },
+  {
+    path: "/book-details",
+    name: "BookDetails",
+    component: BookDetails,
   },
   {
     path: "/user-dashboard",

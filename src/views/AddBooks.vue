@@ -37,6 +37,12 @@
                             id="userInput" placeholder="Book Price" v-model="price" required>
                     </div>
                     <br>
+                    <div class="">
+                        <!-- Book genre -->
+                        <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden capitalize" type="text"
+                            id="userInput" placeholder="Book Genre" v-model="genre">
+                    </div>
+                    <br>
                     <!-- Book Description -->
                     <div class="">
                         <!-- Book Description -->
@@ -72,6 +78,7 @@ export default {
         return {
             title: '',
             description: '',
+            genre: '',
             author: '',
             price: '',
             file: '',
@@ -95,11 +102,13 @@ export default {
 
             this.title = this.capitalize(this.title);
             this.description = this.capitalize(this.description);
+            this.description = this.capitalize(this.genre);
             this.author = this.capitalize(this.author);
 
             const formData = new FormData();
             formData.append('title', this.title);
             formData.append('description', this.description);
+            formData.append('genre', this.genre);
             formData.append('author', this.author);
             formData.append('price', this.price);
             formData.append('file', this.file);
