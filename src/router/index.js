@@ -36,7 +36,7 @@ const routes = [
     component: ForgotPassword,
   },
   {
-    path: "/book-details",
+    path: "/book-details/:id",
     name: "BookDetails",
     component: BookDetails,
   },

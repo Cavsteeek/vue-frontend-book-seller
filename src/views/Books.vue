@@ -57,7 +57,8 @@
             <div v-for="(book, index) in books" :key="index"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
                 <!-- Hover over picture for description -->
-                <img class="mt-2 w-full h-36 rounded-t-lg object-scale-down" :src="book.imageUrl" alt="product image" />
+                <img class="mt-2 w-full h-36 rounded-t-lg object-scale-down" @click="toBookDetails(book.id)"
+                    :title="'Description:\n' + book.description" :src="book.imageUrl" alt="product image" />
                 <div class="p-3 flex flex-col items-center flex-grow">
                     <p class="text-xs sm:text-sm font-semibold tracking-wider mt-1 mb-1 whitespace-nowrap url-field"
                         :title="book.title">
@@ -180,6 +181,9 @@ export default {
                 .catch(error => {
                     console.error('Error:', error);
                 });
+        },
+        toBookDetails(bookId) {
+            this.$router.push({ name: 'BookDetails', params: { id: bookId } });
         },
     },
 
