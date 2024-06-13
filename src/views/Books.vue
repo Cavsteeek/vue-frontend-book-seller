@@ -100,7 +100,6 @@
 import NavBar from '@/components/NavBar.vue';
 import axios from 'axios'
 import 'flowbite'
-import { jwtDecode } from "jwt-decode";
 
 export default {
     name: "Books",
@@ -183,7 +182,7 @@ export default {
                 });
         },
         toBookDetails(bookId) {
-            this.$router.push({ name: 'BookDetails', params: { id: bookId } });
+            this.$router.push({ path: `/book-details/${bookId}` });
         },
     },
 
