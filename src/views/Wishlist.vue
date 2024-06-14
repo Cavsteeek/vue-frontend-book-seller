@@ -5,7 +5,9 @@
     </div>
 
     <div class="px-3 sm:px-4 py-4" v-if="userRole === 'USER'">
-        Wishlist
+        <div>
+            <p class="lg:text-[20px] sm:text-base font-serif text-center">{{ username }}'s Wishlist</p>
+        </div><br>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3 text-center text-black">
 
@@ -40,11 +42,14 @@
 
                             <div class="flex flex-col items-center mt-2">
                                 <button @click="addToCart(wish.book.id)"
-                                    class="text-md bg-blue-700 text-white font-medium rounded-md px-3 py-1 text-center sm:text-xs transition-colors duration-200 ease-in-out">Add
-                                    to Cart</button>
+                                    class="lg:text-[13.5px] bg-blue-700 text-white font-medium hover:bg-gray-700 rounded-md px-3 py-1 text-center sm:text-xs transition-colors duration-200 ease-in-out">Add
+                                    to Cart
+                                </button>
                             </div>
+
                             <button class="p-1 text-red-500" title="Delete" @click="deleteFromWishlist(wish.id)">
-                                <svg class="w-6 h-6 fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <svg class="w-6 h-5 fill-red-600 mt-2" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
                                     <path
                                         d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
                                 </svg>
@@ -54,7 +59,7 @@
                     </div>
                     <div class="flex flex-col items-center mt-2">
                         <button
-                            class="text-white bg-blue-700 hover:bg-gray-800 w-[100px] font-medium rounded-md text-xxs sm:text-xs px-2 py-1 text-center transition-colors duration-200 ease-in-out"><router-link
+                            class="text-white lg:text-[15px] bg-blue-700 hover:bg-gray-700 w-[150px] h-[30px] font-medium rounded-md sm:text-xs px-2 py-1 text-center transition-colors duration-200 ease-in-out"><router-link
                                 to="/books">Back
                                 to Catalog</router-link></button>
                     </div>
