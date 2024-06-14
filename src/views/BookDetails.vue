@@ -1,13 +1,17 @@
 <template>
     <div>
-        Book details Page
-        <div v-if="book">
-            <img class="" :src="book.imageUrl" alt="product image" />
-            <p>{{ book.title }}</p>
-            <p>Genre: {{ book.genre }}</p>
-            <p>Author: {{ book.author }}</p>
-            <p>Description: {{ book.description }}</p>
-            <p>Price: ₦{{ book.price }}</p>
+        <div v-if="book" class="mx-[550px] my-[50px]">
+            <h1 class="text-center mb-2 text-[30px] whitespace-nowrap"> Book Details </h1>
+            <img class="mb-2" :src="book.imageUrl" alt="product image" />
+            <p class="whitespace-nowrap">Title: {{ book.title }}</p><br>
+            <p>Genre: {{ book.genre }}</p><br>
+            <p>Author: {{ book.author }}</p><br>
+            <p class="whitespace-nowrap">Description: {{ book.description }}</p><br>
+            <p class="mb-2">Price: ₦{{ book.price }}</p>
+            <button
+                class="text-white lg:text-[15px] bg-blue-700 hover:bg-gray-700 w-[200px] h-[30px] font-medium rounded-md sm:text-xs px-2 py-1 text-center transition-colors duration-200 ease-in-out tracking-wider"><router-link
+                    to="/books">Back
+                    to Catalog</router-link></button>
         </div>
 
     </div>

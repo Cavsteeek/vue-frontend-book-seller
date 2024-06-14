@@ -70,11 +70,9 @@ export default {
 <template>
     <nav class="bg-gray-200 w-screen">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <router-link to="/dashboard" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap">Cavsteek's Book
-                    Store</span>
-            </router-link>
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap">Cavsteek's Book
+                Store</span>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button" @click="logout"
                     class="text-white bg-blue-700 hover:bg-blue-800 mt-1 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Logout</button>
@@ -103,6 +101,10 @@ export default {
                     <router-link v-slot="{ isActive }" to="/orders"
                         :class="['text-lg block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent', isActive ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700']">
                         <span :class="{ 'font-bold text-blue-700 text-2xl': isActive }">Cart</span>
+                    </router-link>
+                    <router-link v-slot="{ isActive }" to="/wishlist"
+                        :class="['text-lg block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent', isActive ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700']">
+                        <span :class="{ 'font-bold text-blue-700 text-2xl': isActive }">Wishlist</span>
                     </router-link>
                     <router-link v-slot="{ isActive }" to="/"
                         :class="['text-lg block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent', isActive ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700']">

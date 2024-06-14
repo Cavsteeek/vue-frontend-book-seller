@@ -27,7 +27,8 @@
                         Genre: {{ wish.book.genre }}
                     </p>
 
-                    <p class="text-xxs sm:text-xs font-semibold tracking-wider desc-field" :title="wish.book.genre">
+                    <p class="text-xxs sm:text-xs font-semibold tracking-wider whitespace-nowrap desc-field"
+                        :title="wish.book.description">
                         Description: {{ wish.book.description }}
                     </p>
 
@@ -36,13 +37,13 @@
                     </p>
 
                     <div class="flex flex-col items-center mt-2">
-                        <span class="text-sm font-bold mb-1">₦{{ wish.book.price }}</span>
+                        <span class="text-md font-bold mb-1">₦{{ wish.book.price }}</span>
 
                         <div class="flex items-center space-x-2">
 
                             <div class="flex flex-col items-center mt-2">
                                 <button @click="addToCart(wish.book.id)"
-                                    class="lg:text-[13.5px] bg-blue-700 text-white font-medium hover:bg-gray-700 rounded-md px-3 py-1 text-center sm:text-xs transition-colors duration-200 ease-in-out">Add
+                                    class="lg:text-[13.5px] tracking-wider bg-blue-700 text-white font-medium hover:bg-gray-700 rounded-md px-3 py-1 text-center sm:text-xs transition-colors duration-200 ease-in-out">Add
                                     to Cart
                                 </button>
                             </div>
@@ -59,7 +60,7 @@
                     </div>
                     <div class="flex flex-col items-center mt-2">
                         <button
-                            class="text-white lg:text-[15px] bg-blue-700 hover:bg-gray-700 w-[150px] h-[30px] font-medium rounded-md sm:text-xs px-2 py-1 text-center transition-colors duration-200 ease-in-out"><router-link
+                            class="text-white lg:text-[15px] bg-blue-700 hover:bg-gray-700 w-[150px] h-[30px] font-medium rounded-md sm:text-xs px-2 py-1 text-center transition-colors duration-200 ease-in-out tracking-wider"><router-link
                                 to="/books">Back
                                 to Catalog</router-link></button>
                     </div>
