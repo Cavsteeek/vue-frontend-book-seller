@@ -84,8 +84,11 @@
                         :title="filteredOrder.book.title">
                         {{ filteredOrder.book.title }}
                     </p>
+                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.genre">
+                        Genre: {{ filteredOrder.book.genre }}
+                    </p>
                     <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.description">
-                        Genre: {{ filteredOrder.book.description }}
+                        Description: {{ filteredOrder.book.description }}
                     </p>
                     <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.author">
                         Author: {{ filteredOrder.book.author }}
@@ -181,7 +184,7 @@ export default {
                     console.error('Error Fecthing Orders:', error);
                 });
         },
-
+        // create func clearCart that is on BE deleteAll onClick checkout button
         async deleteOrder(orderId) {
             const apiUrl = `http://localhost:8080/api/v1/purchases/delete-order/${orderId}` //localhost
 
