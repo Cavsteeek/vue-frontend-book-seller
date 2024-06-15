@@ -226,7 +226,7 @@ export default {
                     if (response.status >= 200 && response.status < 300) {
                         alert('Added To Wishlist')
                         this.wishlist[bookId] = true
-                        this.saveWishlist();
+                        this.saveWishlist(); //make this thing only save to localstorage for the user with username
                     } else {
                         console.log('Unexpected status code: ', response.status)
                     }
