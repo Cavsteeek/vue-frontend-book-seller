@@ -84,16 +84,18 @@
                         :title="filteredOrder.book.title">
                         {{ filteredOrder.book.title }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.genre">
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap" :title="filteredOrder.book.genre">
                         Genre: {{ filteredOrder.book.genre }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.description">
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap url-field"
+                        :title="filteredOrder.book.description">
                         Description: {{ filteredOrder.book.description }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.book.author">
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap" :title="filteredOrder.book.author">
                         Author: {{ filteredOrder.book.author }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider">Quantity: {{ filteredOrder.quantity }}</p>
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap">Quantity: {{ filteredOrder.quantity }}
+                    </p>
                     <div class="flex flex-col items-center mt-2">
                         <span class="text-sm font-bold mb-1">₦{{ filteredOrder.book.price }}</span>
                         <div class="flex items-center space-x-2">
@@ -113,7 +115,8 @@
         </div>
         <footer class="text-center font-raleway text-lg font-bold mx-auto rounded-md px-3 py-1">
             <button
-                class="bg-gray-800 hover:bg-blue-700 text-white rounded-md px-3 py-2 transition-colors duration-200 ease-in-out">
+                class="bg-gray-800 hover:bg-blue-700 text-white rounded-md px-3 py-2 transition-colors duration-200 ease-in-out"
+                @click="checkoutAllOrders">
                 CHECKOUT
             </button>
         </footer>
@@ -209,6 +212,37 @@ export default {
                     console.error('Error Deleting:', error);
                 });
         },
+        //work on the alert returning success even in error
+        async checkoutAllOrders() {
+            const token = localStorage.getItem("access_token");
+
+            // Process each filtered order for checkout
+            for (let order of this.filteredOrders) {
+                const apiUrl = `http://localhost:8080/api/v1/purchase-history/create/${order.user.id}/${order.book.id}/${order.id}`;
+
+                await axios.post(apiUrl, {}, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                    .then(response => {
+                        if (response.status >= 200 && response.status < 300) {
+                            console.log(`Order ${order.id} processed successfully.`);
+                        } else if (error.response && error.response.status === 500) {
+                            alert(`Order ${order.id} has already been processed.`);
+                        }
+                        else {
+                            alert(`An error occurred while processing order ${order.id}.`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`Error processing order ${order.id}:`, error);
+
+                    });
+            }
+
+            alert("Checkout complete for all orders.");
+        }
     },
 
     mounted() {

@@ -10,36 +10,36 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 text-center text-black">
             <div v-for="(filteredOrder) in  filteredOrders " :key="filteredOrder.id"
                 class="max-w-xs mx-auto rounded-lg overflow-hidden flex flex-col items-center">
-                <img class="mt-2 w-full h-36 rounded-t-lg object-scale-down" :src="filteredOrder.purchase.book.imageUrl"
+                <img class="mt-2 w-full h-36 rounded-t-lg object-scale-down" :src="filteredOrder.book.imageUrl"
                     alt="product image" />
                 <div class="p-3 flex flex-col items-center flex-grow">
                     <p class="text-sm font-semibold tracking-wider mt-1 mb-1 whitespace-nowrap url-field"
-                        :title="filteredOrder.purchase.book.title">
-                        {{ filteredOrder.purchase.book.title }}
+                        :title="filteredOrder.book.title">
+                        {{ filteredOrder.book.title }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.purchase.book.genre">
-                        Genre: {{ filteredOrder.purchase.book.genre }}
+                    <p class="text-xs font-semibold tracking-wider desc-field" :title="filteredOrder.book.genre">
+                        Genre: {{ filteredOrder.book.genre }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.purchase.book.description">
-                        Description: {{ filteredOrder.purchase.book.description }}
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap desc-field"
+                        :title="filteredOrder.book.description">
+                        Description: {{ filteredOrder.book.description }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider" :title="filteredOrder.purchase.book.author">
-                        Author: {{ filteredOrder.purchase.book.author }}
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap desc-field"
+                        :title="filteredOrder.book.author">
+                        Author: {{ filteredOrder.book.author }}
                     </p>
-                    <p class="text-xs font-semibold tracking-wider">Quantity: {{ filteredOrder.purchase.quantity }}</p>
+                    <p class="text-xs font-semibold tracking-wider whitespace-nowrap desc-field">Quantity: {{
+                        filteredOrder.quantity }}</p>
                     <div class="flex flex-col items-center mt-2">
-                        <span class="text-sm font-bold mb-1">₦{{ filteredOrder.purchase.book.price }}</span>
+                        <span class="text-sm font-bold mb-1">₦{{ filteredOrder.book.price }}</span>
                         <div class="flex items-center space-x-2">
                             <p class="text-sm bg-blue-700 text-white font-medium rounded-md px-3 py-1 text-center">
-                                Total: {{ filteredOrder.purchase.price }}
+                                Total: {{ filteredOrder.price }}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            H
         </div>
     </div>
 </template>
@@ -63,7 +63,7 @@ export default {
 
     computed: {
         filteredOrders() {
-            return this.orders.filter(order => order.purchase.user.username === this.username);
+            return this.orders.filter(order => order.user.username === this.username);
         },
     },
 
@@ -104,6 +104,13 @@ export default {
 <style scoped>
 .url-field {
     max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.desc-field {
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;

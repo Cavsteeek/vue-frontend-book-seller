@@ -164,7 +164,7 @@ export default {
                     console.error('Error Fecthing books:', error);
                 });
         },
-
+        //  adjust quantity, send error message when a book is trying to add to cart twice..return item already in cart
         async addToCart(bookId) {
             const userId = localStorage.getItem("userId");
             const token = localStorage.getItem("access_token");
@@ -196,6 +196,7 @@ export default {
                     if (response.status >= 200 && response.status < 300) {
                         alert('Added To Cart')
                     } else {
+                        alert(response.data)
                         console.log(response.data)
                     }
                 })
@@ -203,7 +204,7 @@ export default {
                     console.error('Error:', error);
                 });
         },
-
+        // fix wishlist toggle svg icon and delete
         async addToWishlist(bookId) {
             const userId = localStorage.getItem("userId");
             const token = localStorage.getItem("access_token");
@@ -216,34 +217,107 @@ export default {
                 console.error('User ID is not available');
                 return;
             }
-            const apiUrl = `http://localhost:8080/api/v1/user/wishlist/create/${userId}/${bookId}` //localhost
-            await axios.post(apiUrl, {}, {
+
+            if (this.wishlist[bookId]) {
+                await this.deleteFromWishlist(bookId);
+            } else {
+                const apiUrl = `http://localhost:8080/api/v1/user/wishlist/create/${userId}/${bookId}` //localhost
+
+                try {
+                    const response = await axios.post(apiUrl, {}, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        }
+                    });
+
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('Added To Wishlist');
+                        await this.getWishlist();  // Fetch the updated wishlist
+                    } else {
+                        console.error('Error adding to wishlist:', response.data);
+                    }
+                } catch (error) {
+                    console.error('Error:', error.response ? error.response.data : error.message);
+                }
+            }
+        },
+
+        async getWishlist() {
+            const token = localStorage.getItem("access_token");
+            const apiUrl = 'http://localhost:8080/api/v1/user/wishlist/get-wishlist';
+
+            console.log("Username: " + localStorage.getItem('username'))
+
+            await axios.get(apiUrl, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
-                        alert('Added To Wishlist')
-                        this.wishlist[bookId] = true
-                        this.saveWishlist(); //make this thing only save to localstorage for the user with username
+                        const wishlistData = response.data;
+                        this.wishlist = {};
+                        wishlistData.forEach(item => {
+                            this.wishlist[item.bookId] = item; // Store entire item for reference
+                        });
+
+                        this.saveWishlist();
+                        console.log(this.wishlist);
                     } else {
-                        console.log('Unexpected status code: ', response.status)
+                        console.error('Failed to fetch wishlist:', response.data);
+                        alert(`you must be signed in to view books...confirm you are signed in`)
                     }
                 })
                 .catch(error => {
-                    console.error('Error:', error.response ? error.response.data : error.message);
+                    console.error('Error Fecthing Orders:', error);
                 });
         },
-        saveWishlist() {
-            localStorage.setItem('wishlist', JSON.stringify(this.wishlist));
+
+
+        async deleteFromWishlist(bookId) {
+            const token = localStorage.getItem("access_token");
+            const wishlistItem = this.wishlist[bookId]
+
+            if (!wishlistItem) {
+                console.error('Wishlist item not found for bookId:', bookId);
+                return;
+            }
+
+            const wishId = wishlistItem.id;
+            const apiUrl = `http://localhost:8080/api/v1/user/wishlist/delete-wish/${wishId}`;
+
+            await axios.delete(apiUrl, {
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json', }
+            })
+                .then(response => {
+                    if (response.status >= 200 && response.status < 300) {
+                        alert('Deleted from Wishlist');
+                        delete this.wishlist[bookId]; // Remove from wishlist object
+                        this.saveWishlist();
+                    } else {
+                        console.error('Error deleting from wishlist:', response.data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting from wishlist:', error.response ? error.response.data : error.message)
+                });
         },
+
+        saveWishlist() {
+            const userId = localStorage.getItem('userId');
+            localStorage.setItem(`wishlist_${userId}`, JSON.stringify(this.wishlist));
+        },
+
         loadWishlist() {
-            const storedWishlist = localStorage.getItem('wishlist');
+            const userId = localStorage.getItem('userId');
+            const storedWishlist = localStorage.getItem(`wishlist_${userId}`);
             if (storedWishlist) {
                 this.wishlist = JSON.parse(storedWishlist);
+            } else {
+                this.wishlist = {}; // Initialize as empty if not found
             }
         },
+
         toBookDetails(bookId) {
             this.$router.push({ path: `/book-details/${bookId}` });
         },
@@ -251,6 +325,7 @@ export default {
 
     mounted() {
         this.getAllBooks();
+        this.getWishlist();
     }
 
 }
