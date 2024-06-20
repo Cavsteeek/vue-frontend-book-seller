@@ -94,10 +94,7 @@ export default {
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
                         this.customers = (response.data);
-                        console.log(this.customers);
-                        console.log("Token: ", token);
                     } else {
-                        /* alert(`you must be signed in to view books...confirm you are signed in`) */
                         console.log(response.data)
                     }
                 })

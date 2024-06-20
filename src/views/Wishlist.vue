@@ -75,7 +75,6 @@ import 'flowbite'
 
 export default {
     name: "Wishlist",
-
     data() {
         return {
             wishlist: [],
@@ -106,9 +105,8 @@ export default {
                     if (response.status >= 200 && response.status < 300) {
                         this.wishlist = response.data;
                         console.log(this.wishlist);
-                        console.log("Token: ", token);
                     } else {
-                        alert(`you must be signed in to view this...confirm you are signed in`)
+                        alert(`you must be signed in...confirm you are signed in`)
                         console.log(response.data)
                     }
                 })
@@ -119,7 +117,6 @@ export default {
 
         async deleteFromWishlist(id) {
             const apiUrl = `http://localhost:8080/api/v1/user/wishlist/delete-wish/${id}` //localhost
-
             const token = localStorage.getItem("access_token");
 
             await axios.delete(apiUrl, {
@@ -130,7 +127,7 @@ export default {
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
                         alert('Deleted Successfully')
-                        console.log("Token: ", token);
+                        localStorage.removeItem('wishlist')
                         this.wishlist = this.wishlist.filter(filteredWish => filteredWish.id !== id);
                         this.getWishlist();
                     } else {
@@ -188,8 +185,8 @@ export default {
     mounted() {
         this.getWishlist();
     }
-
 }
+
 </script>
 
 

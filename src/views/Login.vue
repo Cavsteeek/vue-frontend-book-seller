@@ -47,9 +47,9 @@
 
             <div class="mb-2">
                 <!-- Forgot Password -->
-                <button class="font-semibold font-sans ml-36">
+                <button class="font-semibold font-sans ml-[125px]">
                     <router-link to="/forgotpassword" class="hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
-                hover:text-white">Forgot
+                    hover:text-white">Forgot
                         Password?</router-link></button> <br><br>
 
                 <!-- Sign up -->
@@ -59,7 +59,8 @@
                 <br><br>
 
                 <!-- Social Media Login -->
-                <button class="font-semibold font-sans justify-center border border-black py-2 px-2 text-center">Login
+                <button class=" font-semibold font-sans ml-[125px] hover:rounded-md hover:px-2 py-2 hover:bg-gray-900
+                    hover:text-white">Login
                     with
                     google</button>
                 <br><br>

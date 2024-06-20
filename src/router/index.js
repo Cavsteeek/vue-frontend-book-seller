@@ -14,6 +14,7 @@ import EditBook from '@/views/EditBook'
 import BookDetails from '@/views/BookDetails'
 import Wishlist from '@/views/Wishlist'
 import PurchaseHistory from '@/views/PurchaseHistory'
+import Profile from '@/views/Profile'
 import { jwtDecode } from "jwt-decode";
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: "/purchase-history",
     name: "PurchaseHistory",
     component: PurchaseHistory,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
   },
   {
     path: "/signup",
