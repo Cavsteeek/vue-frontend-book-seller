@@ -16,7 +16,6 @@
             <div class="text-center ml-40">
                 <form @submit.prevent="addBook" class="">
 
-                    <!-- Book Title -->
                     <div class="">
                         <!-- Book Title -->
                         <input class=" font-sans px-2 py-2 text-left focus:ring-white border-hidden mt-4 capitalize"
