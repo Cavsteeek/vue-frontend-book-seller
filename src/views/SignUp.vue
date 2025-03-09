@@ -54,32 +54,6 @@
                 </div>
                 <br>
 
-                <!-- Shipping Address field -->
-                <div class="flex focus:outline-none">
-                    <!-- Address icon -->
-                    <svg class="w-5 h-5 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                        <path
-                            d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-                    </svg>
-                    <!-- Shipping Address input -->
-                    <input class="font-sans px-2 h-7 text-left text-wider focus:ring-white rounded-md border-hidden"
-                        type="text" id="emailInput" placeholder="Shipping Address" v-model="shippingAddress" required>
-                </div>
-                <br>
-
-                <!-- Payment Method field -->
-                <div class="flex focus:outline-none">
-                    <!-- Payment icon -->
-                    <svg class="w-5 h-5 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                        <path
-                            d="M64 32C28.7 32 0 60.7 0 96v32H576V96c0-35.3-28.7-64-64-64H64zM576 224H0V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16H368c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z" />
-                    </svg>
-                    <!-- Payment Method input -->
-                    <input class="font-sans px-2 h-7 text-left text-wider focus:ring-white rounded-md border-hidden"
-                        type="text" id="emailInput" placeholder="Payment Method" v-model="paymentMethod" required>
-                </div>
-                <br>
-
                 <!-- Username and Password fields -->
                 <div class="flex focus:outline-none">
                     <!-- Username icon -->
@@ -136,8 +110,6 @@ export default {
             firstName: '',
             lastName: '',
             email: '',
-            shippingAddress: '',
-            paymentMethod: '',
             username: '',
             password: '',
         };
@@ -153,8 +125,6 @@ export default {
                 firstName: this.firstName,
                 lastName: this.lastName,
                 email: this.email,
-                shippingAddress: this.shippingAddress,
-                paymentMethod: this.paymentMethod,
                 username: this.username,
                 password: this.password
             };

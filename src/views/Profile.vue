@@ -38,25 +38,6 @@
                     </div>
                     <br>
 
-                    <!-- Shipping Address -->
-                    <div class="flex focus:outline-none">
-
-                        <p class=" font-sans px-2 h-7 text-wider focus:ring-white rounded-md border-hidden" id="emailInput">
-                            Shipping Address: {{ user.shippingAddress }}</p>
-
-                    </div>
-                    <br>
-
-                    <!-- Payment Method -->
-                    <div class="flex focus:outline-none">
-
-                        <p class=" font-sans px-2 h-7 text-wider focus:ring-white rounded-md border-hidden" id="emailInput">
-                            Payment Method: {{ user.paymentMethod }}</p>
-
-                    </div>
-                    <br>
-
-
                     <div class="flex focus:outline-none">
 
                         <!-- Username -->
